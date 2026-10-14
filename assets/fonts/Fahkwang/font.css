@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Fahkwang';
+    src: url('Fahkwang-Bold.eot');
+    src: url('Fahkwang-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Fahkwang-Bold.woff2') format('woff2'),
+        url('Fahkwang-Bold.woff') format('woff'),
+        url('Fahkwang-Bold.ttf') format('truetype'),
+        url('Fahkwang-Bold.svg#Fahkwang-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fahkwang';
+    src: url('Fahkwang-ExtraLight.eot');
+    src: url('Fahkwang-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('Fahkwang-ExtraLight.woff2') format('woff2'),
+        url('Fahkwang-ExtraLight.woff') format('woff'),
+        url('Fahkwang-ExtraLight.ttf') format('truetype'),
+        url('Fahkwang-ExtraLight.svg#Fahkwang-ExtraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fahkwang';
+    src: url('Fahkwang-Italic.eot');
+    src: url('Fahkwang-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Fahkwang-Italic.woff2') format('woff2'),
+        url('Fahkwang-Italic.woff') format('woff'),
+        url('Fahkwang-Italic.ttf') format('truetype'),
+        url('Fahkwang-Italic.svg#Fahkwang-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fahkwang';
+    src: url('Fahkwang-Medium.eot');
+    src: url('Fahkwang-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Fahkwang-Medium.woff2') format('woff2'),
+        url('Fahkwang-Medium.woff') format('woff'),
+        url('Fahkwang-Medium.ttf') format('truetype'),
+        url('Fahkwang-Medium.svg#Fahkwang-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fahkwang';
+    src: url('Fahkwang-Regular.eot');
+    src: url('Fahkwang-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Fahkwang-Regular.woff2') format('woff2'),
+        url('Fahkwang-Regular.woff') format('woff'),
+        url('Fahkwang-Regular.ttf') format('truetype'),
+        url('Fahkwang-Regular.svg#Fahkwang-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fahkwang';
+    src: url('Fahkwang-SemiBold.eot');
+    src: url('Fahkwang-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Fahkwang-SemiBold.woff2') format('woff2'),
+        url('Fahkwang-SemiBold.woff') format('woff'),
+        url('Fahkwang-SemiBold.ttf') format('truetype'),
+        url('Fahkwang-SemiBold.svg#Fahkwang-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
