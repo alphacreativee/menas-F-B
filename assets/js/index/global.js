@@ -74,34 +74,6 @@ export function customDropdown() {
     });
   }
 }
-export function headerScroll() {
-  const header = document.getElementById("header");
-  if (!header) return null;
-
-  let lastScroll = 0;
-
-  const trigger = ScrollTrigger.create({
-    start: "top top",
-    end: 9999,
-    onUpdate: (self) => {
-      const currentScroll = self.scroll();
-
-      if (currentScroll <= 0) {
-        header.classList.remove("scrolled");
-      } else if (currentScroll > lastScroll) {
-        // Scroll down
-        header.classList.add("scrolled");
-      } else {
-        // Scroll up
-        header.classList.remove("scrolled");
-      }
-
-      lastScroll = currentScroll;
-    },
-  });
-
-  return trigger;
-}
 
 /////// thêm class select-tab vào thì vẫn filter theo đúng type đó, không show hết item.
 export function createFilterTab() {
@@ -175,4 +147,35 @@ export function getDateLightPick() {
     numberOfMonths: 2,
     // lang: "en-US",
   });
+}
+export function headerScroll() {
+  const header = document.getElementById("header");
+  if (!header) return null;
+
+  const isMobile = window.innerWidth <= 991;
+  // const threshold = isMobile ? 100 : window.innerHeight;
+
+  const banner = document.querySelector(".banner");
+
+  const RATIO = 0.9;
+  const baseHeight =
+    banner?.getBoundingClientRect().height || window.innerHeight || 100;
+
+  const threshold = isMobile ? 100 : baseHeight * RATIO;
+
+  const trigger = ScrollTrigger.create({
+    start: "top top",
+    end: 9999,
+    onUpdate: (self) => {
+      const currentScroll = self.scroll();
+
+      if (currentScroll > threshold) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    },
+  });
+
+  return trigger;
 }

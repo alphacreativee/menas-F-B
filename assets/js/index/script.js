@@ -2,7 +2,7 @@
 import {
   customDropdown,
   createFilterTab,
-  getDateLightPick,
+  headerScroll,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -74,7 +74,8 @@ function init() {
   gsap.registerPlugin(ScrollTrigger);
   customDropdown();
   createFilterTab();
-  // getDateLightPick();
+
+  headerScroll();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
