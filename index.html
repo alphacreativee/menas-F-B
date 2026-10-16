@@ -13,6 +13,8 @@
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- meta -->
+    <link rel="preconnect" href="https://player.vimeo.com" />
+    <link rel="preconnect" href="https://i.vimeocdn.com" />
     <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/libs/lenis.css" />
     <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
@@ -90,9 +92,28 @@
     <!-- end header -->
     <main>
       <section class="banner">
-        <img src="./assets/images/del/img.jpg" alt="" />
+        <div class="banner-inner">
+          <div class="banner-thum">
+            <div class="video position-relative">
+              <iframe
+                src="https://player.vimeo.com/video/1236430993?background=1&autoplay=1&loop=1&muted=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div
+            class="banner-content font-heading color-primary heading-1 text-center fw-500"
+          >
+            Hương vị toàn cầu Điểm hẹn Menas
+          </div>
+        </div>
       </section>
-      <section class="style" style="height: 100vh"></section>
+      <section
+        class="style style-section"
+        style="height: 100vh; background-color: red"
+      ></section>
     </main>
     <!-- layout -->
     <!-- footer -->
