@@ -3,6 +3,7 @@ import {
   customDropdown,
   createFilterTab,
   headerScroll,
+  header,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -74,7 +75,7 @@ function init() {
   gsap.registerPlugin(ScrollTrigger);
   customDropdown();
   createFilterTab();
-
+  header();
   headerScroll();
 }
 

@@ -179,3 +179,52 @@ export function headerScroll() {
 
   return trigger;
 }
+export function header() {
+  const ham = document.getElementById("icon-ham");
+  if (!ham) return;
+
+  if (ham.dataset.scriptInitialized) return;
+  ham.dataset.scriptInitialized = "true";
+
+  const header = document.getElementById("header");
+  const ovl = header?.querySelector(".header-ovl");
+  const menu = header?.querySelector(".header-menu");
+  if (!ovl || !menu) return;
+
+  // Trạng thái ban đầu: ẩn
+  gsap.set(ovl, { autoAlpha: 0 });
+  gsap.set(menu, { autoAlpha: 0 });
+
+  const tl = gsap.timeline({ paused: true });
+  tl.to(ovl, { autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0).to(
+    menu,
+    { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" },
+    0.15,
+  );
+
+  function open() {
+    ham.classList.add("active");
+    ovl.classList.add("active");
+    menu.classList.add("active");
+    // document.body.style.overflow = "hidden";
+    tl.timeScale(1).play();
+  }
+
+  function close() {
+    ham.classList.remove("active");
+    ovl.classList.remove("active");
+    menu.classList.remove("active");
+    // document.body.style.overflow = "";
+    tl.timeScale(1.5).reverse(); // đóng nhanh hơn một chút, menu ẩn trước rồi tới overlay
+  }
+
+  ham.addEventListener("click", () => {
+    ham.classList.contains("active") ? close() : open();
+  });
+
+  // Bấm vào overlay hoặc nhấn Esc thì đóng
+  ovl.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && ham.classList.contains("active")) close();
+  });
+}
