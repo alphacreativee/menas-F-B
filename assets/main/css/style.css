@@ -963,6 +963,7 @@ body {
 .style-section {
   position: relative;
   z-index: 3;
+  background-color: var(--color-white-2);
 }
 
 .lightpick {
