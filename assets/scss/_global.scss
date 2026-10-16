@@ -64,3 +64,18 @@
   z-index: 3;
   background-color: var(--color-white-2);
 }
+// parallax image
+[parallax-image] {
+  position: relative;
+  overflow: hidden;
+}
+
+[parallax-image] img {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  transform: translateY(-12%);
+}
