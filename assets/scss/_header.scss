@@ -64,7 +64,12 @@
     &-menu {
       position: fixed;
       top: 60px;
-      background-color: var(--color-white-2);
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+        url("../../images/icons/bg-pa.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       height: calc(100vh - 76px);
       max-width: 400px;
       width: 100%;
