@@ -293,13 +293,21 @@ export function sliderW() {
     if (sliderEl.dataset.scriptInitialized) return;
     sliderEl.dataset.scriptInitialized = "true";
 
-    const slideCount = sliderEl.querySelectorAll(".swiper-slide").length;
+    // .dining-slider chứa cả slider lẫn pagination
+    const wrapper =
+      sliderEl.closest(".dining-slider") || sliderEl.parentElement;
+    const paginationEl = wrapper.querySelector(".slider-pagination");
 
     new Swiper(sliderEl, {
       slidesPerView: 1,
       spaceBetween: 16,
       speed: 800,
       grabCursor: true,
+
+      navigation: {
+        nextEl: wrapper.querySelector(".swiper-button-next"),
+        prevEl: wrapper.querySelector(".swiper-button-prev"),
+      },
       breakpoints: {
         576: {
           slidesPerView: 2,

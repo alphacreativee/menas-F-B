@@ -1621,24 +1621,28 @@ body {
     gap: 16px;
   }
 }
-.dining-box {
-  width: 100%;
-  aspect-ratio: 404/545;
-  border-radius: 20px;
-  overflow: hidden;
-}
 .dining-inner {
   padding-top: 64px;
 }
 .dining-heading {
   margin-bottom: 32px;
 }
+.dining-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 404/545;
+  border-radius: 20px;
+  overflow: hidden;
+}
 .dining-image {
   width: 100%;
   height: 100%;
 }
-.dining-slider .swiper {
-  padding-right: 24px;
+.dining-image img {
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  display: block;
 }
 .dining-content {
   position: absolute;
@@ -1652,13 +1656,71 @@ body {
   justify-content: flex-end;
   padding: 24px;
 }
+.dining-name {
+  border-bottom: 1px dashed var(--color-white);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
 .dining-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.dining-name {
-  border-bottom: 1px dashed var(--color-white);
-  padding-bottom: 12px;
-  margin-bottom: 24px;
+.dining-slider {
+  --gap: 24px;
+  --per-view: 3.4;
+  --pad-left: 124px;
+  --btn-size: 44px;
+  --btn-gap: 16px;
+  position: relative;
+  --slide-w: calc(
+    (100% - var(--pad-left) - var(--gap) * (var(--per-view) - 1)) /
+      var(--per-view)
+  );
+}
+.dining-slider .swiper {
+  padding-right: 24px;
+}
+.dining-slider .swiper-button-next,
+.dining-slider .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  z-index: 5;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  margin: 0;
+}
+.dining-slider .swiper-button-next {
+  left: calc(var(--pad-left) + var(--slide-w) * 3 + var(--gap) * 2);
+  transform: translate(calc(-100% - 22px), -50%);
+}
+.dining-slider .swiper-button-prev {
+  left: calc(var(--pad-left) + var(--slide-w) * 3 + var(--gap) * 2);
+  transform: translate(calc(-200% - 22px - var(--btn-gap)), -50%);
+}
+@media (max-width: 991px) {
+  .dining-slider .swiper-button-next {
+    left: auto;
+    right: 16px;
+    transform: translateY(-50%);
+  }
+  .dining-slider .swiper-button-prev {
+    left: auto;
+    right: calc(16px + var(--btn-size) + var(--btn-gap));
+    transform: translateY(-50%);
+  }
+}
+.dining .btn-custom {
+  height: 32px;
+  width: 100px;
+  border: 1px solid var(--color-third);
+  background-color: var(--color-white-2);
+  border-radius: 4px;
+  top: 40px;
+  margin: 0;
+}
+.dining .btn-custom::after {
+  content: unset;
+  font-size: 0;
 }
