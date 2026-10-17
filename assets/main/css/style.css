@@ -1390,8 +1390,8 @@ body {
 
 .footer-social-link {
   display: inline-flex;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   align-items: center;
   justify-content: center;
   color: var(--color-third);
@@ -1577,7 +1577,7 @@ body {
     justify-self: start;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .footer-container {
     grid-template-columns: 1fr;
     gap: 38px;
