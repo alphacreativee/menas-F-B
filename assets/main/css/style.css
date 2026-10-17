@@ -87,6 +87,10 @@
   font-weight: 500;
 }
 
+.padding-inner-l {
+  padding-left: 124px;
+}
+
 .color-black {
   color: var(--color-black);
 }
