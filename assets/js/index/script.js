@@ -4,6 +4,7 @@ import {
   createFilterTab,
   headerScroll,
   header,
+  imageParallax,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -82,6 +83,7 @@ function init() {
 document.addEventListener("DOMContentLoaded", () => {
   init();
   initSwiper();
+  imageParallax();
 });
 
 let isLinkClicked = false;

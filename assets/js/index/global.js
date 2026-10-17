@@ -228,3 +228,60 @@ export function header() {
     if (e.key === "Escape" && ham.classList.contains("active")) close();
   });
 }
+export function imageParallax() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll("[parallax-image]").forEach((el) => {
+    if (el.dataset.scriptInitialized) return;
+    el.dataset.scriptInitialized = "true";
+
+    const img = el.querySelector("img");
+    if (!img) return;
+
+    gsap.set(img, { willChange: "transform", force3D: true });
+
+    const row =
+      el.closest("[parallax-row]") || el.closest(".parallax-row") || el;
+
+    let mm = gsap.matchMedia();
+
+    const createParallax = () => {
+      if (el._parallaxTween) {
+        el._parallaxTween.scrollTrigger?.kill();
+        el._parallaxTween.kill();
+        el._parallaxTween = null;
+      }
+
+      mm.add(
+        {
+          isMobile: "(max-width: 990px)",
+          isDesktop: "(min-width: 991px)",
+        },
+        (context) => {
+          const { isMobile } = context.conditions;
+          const percentParallax = isMobile ? 10 : -10;
+
+          // Chỉ "to" - GSAP tự lấy giá trị hiện tại (đã set sẵn = CSS) làm điểm bắt đầu
+          el._parallaxTween = gsap.to(img, {
+            yPercent: percentParallax,
+            ease: "none",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 70%",
+              end: "bottom top",
+              scrub: 1,
+              invalidateOnRefresh: true,
+              // markers: true,
+            },
+          });
+        },
+      );
+    };
+
+    if (img.complete) {
+      createParallax();
+    } else {
+      img.addEventListener("load", createParallax, { once: true });
+    }
+  });
+}
