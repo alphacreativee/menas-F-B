@@ -285,3 +285,31 @@ export function imageParallax() {
     }
   });
 }
+export function sliderW() {
+  const sliders = document.querySelectorAll(".slider-w");
+  if (!sliders.length) return;
+
+  sliders.forEach((sliderEl) => {
+    if (sliderEl.dataset.scriptInitialized) return;
+    sliderEl.dataset.scriptInitialized = "true";
+
+    const slideCount = sliderEl.querySelectorAll(".swiper-slide").length;
+
+    new Swiper(sliderEl, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      speed: 800,
+      grabCursor: true,
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 16,
+        },
+        992: {
+          slidesPerView: 3.4,
+          spaceBetween: 24,
+        },
+      },
+    });
+  });
+}

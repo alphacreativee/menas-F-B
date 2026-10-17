@@ -5,6 +5,7 @@ import {
   headerScroll,
   header,
   imageParallax,
+  sliderW,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -78,6 +79,7 @@ function init() {
   createFilterTab();
   header();
   headerScroll();
+  sliderW();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
