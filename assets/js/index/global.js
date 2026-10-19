@@ -322,7 +322,7 @@ export function sliderW() {
   });
 }
 export function animationText() {
-  document.querySelectorAll("[el-txt-line-auto]").forEach((el) => {
+  document.querySelectorAll("[el-txt-line-auto-banner]").forEach((el) => {
     if (el.dataset.scriptInitialized) return;
     el.dataset.scriptInitialized = "true";
 
@@ -344,9 +344,9 @@ export function animationText() {
           {
             y: "0%",
             opacity: 1,
-            duration: 1,
+            duration: 1.5,
             ease: "power3.inOut",
-            stagger: 0.1,
+            stagger: 0.3,
           },
         );
       },
