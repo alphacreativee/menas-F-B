@@ -191,16 +191,39 @@ export function header() {
   const menu = header?.querySelector(".header-menu");
   if (!ovl || !menu) return;
 
+  // Các phần tử xuất hiện từng dòng
+  const mainItems = menu.querySelectorAll(".header-menu-main li");
+  const subItems = menu.querySelectorAll(".header-menu-sub li");
+  const bottom = menu.querySelector(".header-menu-bottom");
+  const lineItems = [...mainItems, ...subItems, bottom].filter(Boolean);
+
   // Trạng thái ban đầu: ẩn
   gsap.set(ovl, { autoAlpha: 0 });
   gsap.set(menu, { autoAlpha: 0 });
+  gsap.set(lineItems, { y: 15, autoAlpha: 0 });
 
+  // Timeline mở: overlay -> menu -> từng dòng
   const tl = gsap.timeline({ paused: true });
-  tl.to(ovl, { autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0).to(
-    menu,
-    { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" },
-    0.15,
-  );
+  tl.to(ovl, { autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0)
+    .to(menu, { autoAlpha: 1, duration: 0.45, ease: "power3.out" }, 0.15)
+    .to(
+      mainItems,
+      { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.08 },
+      0.4,
+    )
+    .to(
+      subItems,
+      { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.08 },
+      ">-0.3",
+    );
+
+  if (bottom) {
+    tl.to(
+      bottom,
+      { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" },
+      ">-0.4",
+    );
+  }
 
   function open() {
     ham.classList.add("active");
@@ -215,7 +238,7 @@ export function header() {
     ovl.classList.remove("active");
     menu.classList.remove("active");
     // document.body.style.overflow = "";
-    tl.timeScale(1.5).reverse(); // đóng nhanh hơn một chút, menu ẩn trước rồi tới overlay
+    tl.timeScale(2).reverse(); // đóng nhanh, chạy ngược lại
   }
 
   ham.addEventListener("click", () => {
