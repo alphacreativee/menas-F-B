@@ -1058,7 +1058,7 @@ body {
   --color-main-line: var(--color-third);
 }
 #header.scrolled .header-inner {
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
 }
 #header.scrolled .header-logo img.logo-active {
   opacity: 1;
@@ -1097,7 +1097,8 @@ body {
 #header .header-menu {
   position: fixed;
   top: 60px;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("../../images/icons/bg-pa.png");
+  left: 12px;
+  background-image: linear-gradient(rgba(255, 250, 235, 0.75), rgba(255, 250, 235, 0.75)), url("../../images/icons/bg-pa.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
