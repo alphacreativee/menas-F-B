@@ -239,7 +239,58 @@
           </div>
         </div>
       </section>
+
+      <section class="sectionMoment style-section" aria-labelledby="moment-title">
+        <div class="sectionMoment-heading">
+          <h2 id="moment-title" class="sectionMoment-title heading-3 font-heading color-third">
+            Khoảnh khắc
+          </h2>
+          <a class="sectionMoment-all" href="./khoanh-khac.html">
+            Xem toàn bộ
+          </a>
+        </div>
+
+        <div class="moment-marquee" data-moment-marquee>
+          <div class="moment-track" data-moment-track>
+            <div class="moment-list" data-moment-list>
+              <div class="moment-item" role="button" tabindex="0" data-moment-index="0" aria-label="Xem hình khoảnh khắc 1">
+                <img src="./assets/images/del/moment-1.avif" alt="Khoảnh khắc tại Menas F&amp;B" />
+              </div>
+              <div class="moment-item" role="button" tabindex="0" data-moment-index="1" aria-label="Xem hình khoảnh khắc 2">
+                <img src="./assets/images/del/moment-2.avif" alt="Khoảnh khắc tại Menas F&amp;B" />
+              </div>
+              <div class="moment-item" role="button" tabindex="0" data-moment-index="2" aria-label="Xem hình khoảnh khắc 3">
+                <img src="./assets/images/del/moment-3.avif" alt="Khoảnh khắc tại Menas F&amp;B" />
+              </div>
+              <div class="moment-item" role="button" tabindex="0" data-moment-index="3" aria-label="Xem hình khoảnh khắc 4">
+                <img src="./assets/images/del/moment-4.avif" alt="Khoảnh khắc tại Menas F&amp;B" />
+              </div>
+              <div class="moment-item" role="button" tabindex="0" data-moment-index="4" aria-label="Xem hình khoảnh khắc 5">
+                <img src="./assets/images/del/moment-5.avif" alt="Khoảnh khắc tại Menas F&amp;B" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <div class="moment-lightbox" data-moment-lightbox aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Thư viện hình ảnh khoảnh khắc">
+      <div class="moment-lightbox-toolbar">
+        <span class="moment-counter" data-moment-counter aria-live="polite">1 / 5</span>
+        <div class="moment-controls">
+          <button class="moment-control" type="button" data-moment-zoom-out aria-label="Thu nhỏ"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path></svg></button>
+          <span class="moment-zoom-level" data-moment-zoom-level>100%</span>
+          <button class="moment-control" type="button" data-moment-zoom-in aria-label="Phóng to"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"></path></svg></button>
+          <button class="moment-control moment-close" type="button" data-moment-close aria-label="Đóng"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </div>
+      </div>
+      <button class="moment-arrow moment-previous" type="button" data-moment-previous aria-label="Ảnh trước"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"></path></svg></button>
+      <div class="moment-stage" data-moment-stage>
+        <img class="moment-active-image" data-moment-active-image alt="" />
+      </div>
+      <button class="moment-arrow moment-next" type="button" data-moment-next aria-label="Ảnh tiếp theo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"></path></svg></button>
+      <div class="moment-thumbnails" data-moment-thumbnails aria-label="Chọn ảnh"></div>
+    </div>
     <!-- layout -->
     <!-- footer -->
     <script>
@@ -265,7 +316,7 @@
     <script src="./assets/libs/lightpick.min.js"></script>
     <!-- import custom js -->
     <script type="module" src="./assets/main/js/script.min.js"></script>
-    <!-- <script type="module" src="./assets/main/js/home.min.js"></script> -->
+    <script type="module" src="./assets/main/js/home.min.js"></script>
 
     <!-- end import custom js -->
   </body>
