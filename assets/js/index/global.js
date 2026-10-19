@@ -321,3 +321,35 @@ export function sliderW() {
     });
   });
 }
+export function animationText() {
+  document.querySelectorAll("[el-txt-line-auto-banner]").forEach((el) => {
+    if (el.dataset.scriptInitialized) return;
+    el.dataset.scriptInitialized = "true";
+
+    let splitTitle;
+
+    SplitText.create(el, {
+      type: "lines",
+      mask: "lines",
+      linesClass: "line",
+      autoSplit: true,
+      onSplit: (self) => {
+        splitTitle = self;
+
+        gsap.set(el, { visibility: "visible" });
+
+        return gsap.fromTo(
+          self.lines,
+          { y: "100%", opacity: 0 },
+          {
+            y: "0%",
+            opacity: 1,
+            duration: 1.5,
+            ease: "power3.inOut",
+            stagger: 0.3,
+          },
+        );
+      },
+    });
+  });
+}
