@@ -6,6 +6,7 @@ import {
   header,
   imageParallax,
   sliderW,
+  animationText,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -86,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   init();
   initSwiper();
   imageParallax();
+  animationText();
 });
 
 let isLinkClicked = false;
