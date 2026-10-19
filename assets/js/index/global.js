@@ -352,4 +352,37 @@ export function animationText() {
       },
     });
   });
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  document.querySelectorAll("[el-txt-word]").forEach((el) => {
+    if (el.dataset.scriptInitialized) return;
+    el.dataset.scriptInitialized = "true";
+
+    SplitText.create(el, {
+      type: "words",
+      mask: "words",
+      wordsClass: "word",
+      autoSplit: true,
+      onSplit: (self) => {
+        gsap.set(el, { visibility: "visible" });
+
+        return gsap.fromTo(
+          self.words,
+          { y: "100%", opacity: 0 },
+          {
+            y: "0%",
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.04,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%",
+              once: true,
+            },
+          },
+        );
+      },
+    });
+  });
 }
