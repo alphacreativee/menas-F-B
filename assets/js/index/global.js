@@ -409,3 +409,31 @@ export function animationText() {
     });
   });
 }
+export function sliderHero() {
+  const sliders = document.querySelectorAll(".swiper-banner");
+  if (!sliders.length) return;
+
+  sliders.forEach((sliderEl) => {
+    if (sliderEl.dataset.scriptInitialized) return;
+    sliderEl.dataset.scriptInitialized = "true";
+
+    const slideCount = sliderEl.querySelectorAll(".swiper-slide").length;
+
+    new Swiper(sliderEl, {
+      slidesPerView: 1,
+      speed: 2000,
+      effect: "fade",
+      fadeEffect: { crossFade: true },
+      loop: slideCount > 2,
+      allowTouchMove: slideCount > 1,
+      autoplay:
+        slideCount > 1
+          ? {
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }
+          : false,
+    });
+  });
+}

@@ -7,6 +7,7 @@ import {
   imageParallax,
   sliderW,
   animationText,
+  sliderHero,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -81,6 +82,7 @@ function init() {
   header();
   headerScroll();
   sliderW();
+  sliderHero();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
