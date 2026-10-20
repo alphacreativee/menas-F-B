@@ -47,9 +47,13 @@ function initSectionNews() {
   const section = document.querySelector("[data-section-news]");
   if (!section || typeof Swiper === "undefined") return;
 
-  const background = section.querySelector("[data-news-background]");
-  const backgroundImage = background?.querySelector("img");
-  if (backgroundImage && window.gsap && window.ScrollTrigger) {
+  const backgroundImage = section.querySelector("[data-news-background] img");
+  if (
+    backgroundImage &&
+    window.gsap &&
+    window.ScrollTrigger &&
+    window.matchMedia("(min-width: 768px)").matches
+  ) {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
       backgroundImage,
@@ -122,6 +126,34 @@ function initSectionNews() {
     }
   };
 
+  const measureLongestNewsCopy = () => {
+    const panel = section.querySelector(".sectionNews-panel");
+    const copyWidth = copy.getBoundingClientRect().width;
+    if (!panel || !copyWidth) return;
+
+    let maxHeight = 0;
+    slider.querySelectorAll("[data-news-entry]").forEach((template) => {
+      const entry = template.content;
+      const title = entry.querySelector("[data-news-entry-title]");
+      const entryDate = entry.querySelector("[data-news-entry-date]");
+      const entryDescription = entry.querySelector("[data-news-entry-description]");
+      if (!title || !entryDate || !entryDescription) return;
+
+      const measure = copy.cloneNode(true);
+      measure.style.position = "absolute";
+      measure.style.visibility = "hidden";
+      measure.style.width = `${copyWidth}px`;
+      measure.querySelector("[data-news-title-link]").textContent = title.textContent.trim();
+      measure.querySelector("[data-news-date]").textContent = entryDate.textContent.trim();
+      measure.querySelector("[data-news-description]").textContent = entryDescription.textContent.trim();
+      copy.parentElement.appendChild(measure);
+      maxHeight = Math.max(maxHeight, measure.getBoundingClientRect().height);
+      measure.remove();
+    });
+
+    if (maxHeight) panel.style.setProperty("--news-copy-height", `${Math.ceil(maxHeight)}px`);
+  };
+
   initParallaxSwiper(slider, {
     navigation: {
       prevEl: prevButton,
@@ -140,6 +172,10 @@ function initSectionNews() {
       },
     },
   });
+
+  measureLongestNewsCopy();
+  window.addEventListener("resize", measureLongestNewsCopy, { passive: true });
+  document.fonts?.ready.then(measureLongestNewsCopy);
 }
 
 function initSectionMoment() {
