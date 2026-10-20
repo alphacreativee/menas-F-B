@@ -1,5 +1,147 @@
 "use strict";
 
+function initParallaxSwiper(swiperEl, options = {}) {
+  const interleaveOffset = 0.85;
+
+  return new Swiper(swiperEl, {
+    slidesPerView: 1,
+    loop: true,
+    speed: 1500,
+    watchSlidesProgress: true,
+    grabCursor: true,
+    ...options,
+    on: {
+      progress(swiper) {
+        swiper.slides.forEach((slide) => {
+          const slideProgress = slide.progress || 0;
+          const innerOffset = swiper.width * interleaveOffset;
+          const innerTranslate = slideProgress * innerOffset;
+
+          if (!isNaN(innerTranslate)) {
+            const image = slide.querySelector(".image");
+            if (image) {
+              image.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
+            }
+          }
+        });
+      },
+      touchStart(swiper) {
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = "";
+        });
+      },
+      setTransition(swiper, speed) {
+        const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = `${speed}ms ${easing}`;
+          const image = slide.querySelector(".image");
+          if (image) image.style.transition = `${speed}ms ${easing}`;
+        });
+      },
+      ...(options.on || {}),
+    },
+  });
+}
+
+function initSectionNews() {
+  const section = document.querySelector("[data-section-news]");
+  if (!section || typeof Swiper === "undefined") return;
+
+  const background = section.querySelector("[data-news-background]");
+  const backgroundImage = background?.querySelector("img");
+  if (backgroundImage && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      backgroundImage,
+      { yPercent: -6 },
+      {
+        yPercent: 6,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+  }
+
+  const slider = section.querySelector("[data-news-swiper]");
+  const copy = section.querySelector("[data-news-copy]");
+  const titleLink = section.querySelector("[data-news-title-link]");
+  const date = section.querySelector("[data-news-date]");
+  const description = section.querySelector("[data-news-description]");
+  const prevButton = section.querySelector("[data-news-prev]");
+  const nextButton = section.querySelector("[data-news-next]");
+  if (!slider || !copy || !titleLink || !date || !description) return;
+
+  const updateContent = (swiper) => {
+    const slide = swiper.slides[swiper.activeIndex];
+    const entry = slide?.querySelector("[data-news-entry]")?.content;
+    const entryTitle = entry?.querySelector("[data-news-entry-title]");
+    const entryDate = entry?.querySelector("[data-news-entry-date]");
+    const entryDescription = entry?.querySelector("[data-news-entry-description]");
+    if (!entryTitle || !entryDate || !entryDescription) return;
+
+    titleLink.textContent = entryTitle.textContent.trim();
+    titleLink.href = entryTitle.getAttribute("href") || "#";
+    date.textContent = entryDate.textContent.trim();
+    date.dateTime = entryDate.getAttribute("datetime") || "";
+    description.textContent = entryDescription.textContent.trim();
+  };
+
+  let displayedIndex = null;
+  const syncContentToSlide = (swiper, shouldAnimate = true) => {
+    if (displayedIndex === swiper.realIndex) return;
+    displayedIndex = swiper.realIndex;
+    updateContent(swiper);
+    if (!shouldAnimate) return;
+
+    if (typeof copy.animate === "function") {
+      copy.animate(
+        [
+          { opacity: 0, transform: "translateY(30px)" },
+          { opacity: 1, transform: "translateY(0)" },
+        ],
+        {
+          duration: 400,
+          easing: "ease-out",
+          fill: "both",
+        }
+      );
+    } else {
+      copy.style.opacity = "0";
+      copy.style.transform = "translateY(30px)";
+      requestAnimationFrame(() => {
+        copy.style.transition = "opacity 400ms ease-out, transform 400ms ease-out";
+        copy.style.opacity = "1";
+        copy.style.transform = "translateY(0)";
+      });
+    }
+  };
+
+  initParallaxSwiper(slider, {
+    navigation: {
+      prevEl: prevButton,
+      nextEl: nextButton,
+    },
+    on: {
+      init(swiper) {
+        displayedIndex = swiper.realIndex;
+        updateContent(swiper);
+      },
+      realIndexChange(swiper) {
+        syncContentToSlide(swiper);
+      },
+      slideChangeTransitionStart(swiper) {
+        syncContentToSlide(swiper);
+      },
+    },
+  });
+}
+
 function initSectionMoment() {
   const section = document.querySelector(".sectionMoment");
   const lightbox = document.querySelector("[data-moment-lightbox]");
@@ -148,6 +290,7 @@ function initSectionMoment() {
 }
 
 function init() {
+  initSectionNews();
   initSectionMoment();
 }
 
