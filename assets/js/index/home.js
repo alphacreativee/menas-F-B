@@ -178,6 +178,28 @@ function initSectionNews() {
   document.fonts?.ready.then(measureLongestNewsCopy);
 }
 
+function initSectionTestimonials() {
+  const section = document.querySelector("[data-section-testimonials]");
+  if (!section || typeof Swiper === "undefined") return;
+
+  const slider = section.querySelector("[data-testimonials-swiper]");
+  if (!slider) return;
+
+  new Swiper(slider, {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    speed: 700,
+    watchOverflow: true,
+    navigation: {
+      prevEl: section.querySelector("[data-testimonials-prev]"),
+      nextEl: section.querySelector("[data-testimonials-next]"),
+    },
+    breakpoints: {
+      768: { slidesPerView: 2, spaceBetween: 16 },
+    },
+  });
+}
+
 function initSectionMoment() {
   const section = document.querySelector(".sectionMoment");
   const lightbox = document.querySelector("[data-moment-lightbox]");
@@ -327,6 +349,7 @@ function initSectionMoment() {
 
 function init() {
   initSectionNews();
+  initSectionTestimonials();
   initSectionMoment();
 }
 
