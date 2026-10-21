@@ -64,6 +64,26 @@
   z-index: 3;
   background-color: var(--color-white-2);
 }
+
+.style-section + .style-section {
+  padding-top: 64px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: calc(100% - max(80px, calc(100vw - 1272px)));
+    border-top: 1px solid var(--color-third);
+    content: "";
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 991px) {
+  .style-section + .style-section {
+    padding-top: 48px;
+  }
+}
 // parallax image
 [parallax-image] {
   position: relative;
