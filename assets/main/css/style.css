@@ -1227,6 +1227,14 @@ body {
 #header .header-list-button {
   gap: 8px;
 }
+@media (max-width: 991px) {
+  #header .header-list-button {
+    --color-main-line: var(--color-third);
+  }
+  #header .header-list-button .btn-bg {
+    background-color: transparent;
+  }
+}
 #header .header-social-bottom ul {
   display: flex;
   align-items: center;

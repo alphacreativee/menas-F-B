@@ -182,6 +182,12 @@
 
     &-list-button {
       gap: 8px;
+      @media (max-width: 991px) {
+        --color-main-line: var(--color-third);
+        .btn-bg {
+          background-color: transparent;
+        }
+      }
     }
 
     &-social {

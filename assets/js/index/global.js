@@ -194,15 +194,18 @@ export function header() {
   // Các phần tử xuất hiện từng dòng
   const mainItems = menu.querySelectorAll(".header-menu-main li");
   const subItems = menu.querySelectorAll(".header-menu-sub li");
+  const listButton = menu.querySelector(".header-list-button"); // cả khối
   const bottom = menu.querySelector(".header-menu-bottom");
-  const lineItems = [...mainItems, ...subItems, bottom].filter(Boolean);
+  const lineItems = [...mainItems, ...subItems, listButton, bottom].filter(
+    Boolean,
+  );
 
   // Trạng thái ban đầu: ẩn
   gsap.set(ovl, { autoAlpha: 0 });
   gsap.set(menu, { autoAlpha: 0 });
   gsap.set(lineItems, { y: 15, autoAlpha: 0 });
 
-  // Timeline mở: overlay -> menu -> từng dòng
+  // Timeline mở: overlay -> menu -> từng dòng -> list-button -> bottom
   const tl = gsap.timeline({ paused: true });
   tl.to(ovl, { autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0)
     .to(menu, { autoAlpha: 1, duration: 0.45, ease: "power3.out" }, 0.15)
@@ -217,6 +220,14 @@ export function header() {
       ">-0.3",
     );
 
+  if (listButton) {
+    tl.to(
+      listButton,
+      { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" },
+      ">-0.3",
+    );
+  }
+
   if (bottom) {
     tl.to(
       bottom,
@@ -229,7 +240,6 @@ export function header() {
     ham.classList.add("active");
     ovl.classList.add("active");
     menu.classList.add("active");
-    // document.body.style.overflow = "hidden";
     tl.timeScale(1).play();
   }
 
@@ -237,15 +247,13 @@ export function header() {
     ham.classList.remove("active");
     ovl.classList.remove("active");
     menu.classList.remove("active");
-    // document.body.style.overflow = "";
-    tl.timeScale(2).reverse(); // đóng nhanh, chạy ngược lại
+    tl.timeScale(2).reverse();
   }
 
   ham.addEventListener("click", () => {
     ham.classList.contains("active") ? close() : open();
   });
 
-  // Bấm vào overlay hoặc nhấn Esc thì đóng
   ovl.addEventListener("click", close);
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && ham.classList.contains("active")) close();
