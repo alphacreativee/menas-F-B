@@ -238,6 +238,9 @@
 .footer-legal {
   display: flex;
   gap: 22px;
+  @media (max-width: 991px) {
+    flex-wrap: wrap;
+  }
 }
 
 .footer-credit {
@@ -283,7 +286,7 @@
   .footer-container {
     grid-template-columns: 1fr;
     gap: 38px;
-    padding: 44px 22px 32px;
+    padding: 44px 24px 32px;
   }
 
   .footer-left {

@@ -49,18 +49,30 @@
 .heading-1 {
   font-size: 80px;
   line-height: 1.25;
+  @media (max-width: 991px) {
+    font-size: 40px;
+  }
 }
 .heading-2 {
   font-size: 40px;
   line-height: 1.2;
+  @media (max-width: 991px) {
+    font-size: 30px;
+  }
 }
 .heading-3 {
   font-size: 30px;
   line-height: 1.2;
+  @media (max-width: 991px) {
+    font-size: 24px;
+  }
 }
 .heading-4 {
   font-size: 24px;
   line-height: 1.2;
+  @media (max-width: 991px) {
+    font-size: 20px;
+  }
 }
 .b1 {
   font-size: 19px;
@@ -83,6 +95,9 @@
 }
 .padding-inner-l {
   padding-left: 124px;
+  @media (max-width: 991px) {
+    padding-left: 24px;
+  }
 }
 // color variable
 .color-black {
