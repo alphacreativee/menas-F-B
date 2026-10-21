@@ -1736,6 +1736,7 @@ body {
 }
 .dining-heading {
   margin-bottom: 32px;
+  padding-left: max(40px, calc((100vw - 1272px) / 2));
 }
 .dining-box {
   position: relative;
@@ -1776,10 +1777,14 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.dining-menu:hover,
+.dining-menu:focus-visible {
+  color: var(--color-primary);
+}
 .dining-slider {
   --gap: 24px;
   --per-view: 3.4;
-  --pad-left: 124px;
+  --pad-left: max(40px, calc((100vw - 1272px) / 2));
   --btn-size: 44px;
   --btn-gap: 16px;
   position: relative;
@@ -1789,6 +1794,7 @@ body {
   );
 }
 .dining-slider .swiper {
+  padding-left: var(--pad-left);
   padding-right: 24px;
 }
 .dining-slider .swiper-button-next,
@@ -1851,10 +1857,24 @@ body {
   .dining .btn-custom {
     display: none;
   }
+  .dining-heading {
+    padding-left: 32px;
+  }
+  .dining-slider {
+    --pad-left: 32px;
+  }
 }
 @media (max-width: 991px) {
   .dining {
     padding-bottom: 48px;
+  }
+}
+@media (max-width: 575px) {
+  .dining-heading {
+    padding-left: 24px;
+  }
+  .dining-slider {
+    --pad-left: 24px;
   }
 }
 
