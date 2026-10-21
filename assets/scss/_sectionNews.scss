@@ -27,7 +27,9 @@
     line-height: 1.2;
     text-decoration: none;
     text-transform: uppercase;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
 
     &:hover,
     &:focus-visible {
@@ -49,7 +51,6 @@
     border-radius: 30px;
     background: #4b111d;
     color: var(--color-white);
-
   }
 
   &-background {
@@ -153,7 +154,10 @@
     color: var(--color-white-2);
     font-family: var(--font-body);
     cursor: pointer;
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease,
+      border-color 0.3s ease;
 
     span {
       position: absolute;
@@ -235,7 +239,7 @@
 @media (max-width: 767px) {
   .sectionNews {
     &-heading {
-      width: calc(100% - 44px);
+      width: calc(100% - 48px);
     }
 
     &-panel {
@@ -244,7 +248,7 @@
       align-items: stretch;
       gap: 0;
       min-height: 0;
-      margin: 0 10px;
+      margin: 0 24px;
       padding: 0 0 24px;
       border-radius: 18px;
     }

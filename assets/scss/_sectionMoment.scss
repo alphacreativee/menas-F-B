@@ -30,7 +30,9 @@
     line-height: 1.2;
     text-transform: uppercase;
     cursor: pointer;
-    transition: color 0.2s ease, background-color 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
 
     &:hover,
     &:focus-visible {
@@ -145,7 +147,9 @@
   background: rgba(255, 255, 255, 0.13);
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
 
   &:hover,
   &:focus-visible {
@@ -240,7 +244,9 @@
   background: transparent;
   cursor: pointer;
   opacity: 0.58;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
 
   img {
     display: block;
@@ -275,7 +281,7 @@
 
 @media (max-width: 575px) {
   .sectionMoment-heading {
-    width: calc(100% - 44px);
+    width: calc(100% - 48px);
   }
 
   .sectionMoment-heading {
