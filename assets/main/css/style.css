@@ -1014,6 +1014,11 @@ body {
     padding-top: 48px;
   }
 }
+@media (max-width: 575px) {
+  .style-section + .style-section::before {
+    width: calc(100% - 48px);
+  }
+}
 [parallax-image] {
   position: relative;
   overflow: hidden;
@@ -1867,7 +1872,10 @@ body {
 }
 @media (max-width: 575px) {
   .dining-heading {
-    padding-left: 24px;
+    width: calc(100% - 48px);
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0;
   }
   .dining-slider {
     --pad-left: 24px;
@@ -2122,12 +2130,13 @@ body {
     font-size: 13px;
   }
   .sectionNews-controls {
-    justify-content: center;
+    justify-content: flex-end;
     flex: 0 0 auto;
     padding-top: 22px;
   }
   .sectionNews-arrow {
-    flex: 0 1 120px;
+    flex: 0 0 72px;
+    width: 72px;
     height: 32px;
   }
 }
@@ -2563,9 +2572,6 @@ body {
   }
   .sectionMoment-heading {
     align-items: flex-end;
-  }
-  .sectionMoment-title {
-    font-size: 30px;
   }
   .sectionMoment-all {
     padding: 6px 9px;
