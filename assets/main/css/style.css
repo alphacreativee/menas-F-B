@@ -1777,10 +1777,6 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.dining-menu:hover,
-.dining-menu:focus-visible {
-  color: var(--color-primary);
-}
 .dining-slider {
   --gap: 24px;
   --per-view: 3.4;

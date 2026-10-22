@@ -38,8 +38,8 @@ function initParallaxSwiper(swiperEl, options = {}) {
           if (image) image.style.transition = `${speed}ms ${easing}`;
         });
       },
-      ...(options.on || {}),
-    },
+      ...(options.on || {})
+    }
   });
 }
 
@@ -66,8 +66,8 @@ function initSectionNews() {
           start: "top center",
           end: "bottom center",
           scrub: 1,
-          invalidateOnRefresh: true,
-        },
+          invalidateOnRefresh: true
+        }
       }
     );
   }
@@ -86,7 +86,9 @@ function initSectionNews() {
     const entry = slide?.querySelector("[data-news-entry]")?.content;
     const entryTitle = entry?.querySelector("[data-news-entry-title]");
     const entryDate = entry?.querySelector("[data-news-entry-date]");
-    const entryDescription = entry?.querySelector("[data-news-entry-description]");
+    const entryDescription = entry?.querySelector(
+      "[data-news-entry-description]"
+    );
     if (!entryTitle || !entryDate || !entryDescription) return;
 
     titleLink.textContent = entryTitle.textContent.trim();
@@ -107,19 +109,20 @@ function initSectionNews() {
       copy.animate(
         [
           { opacity: 0, transform: "translateY(30px)" },
-          { opacity: 1, transform: "translateY(0)" },
+          { opacity: 1, transform: "translateY(0)" }
         ],
         {
           duration: 400,
           easing: "ease-out",
-          fill: "both",
+          fill: "both"
         }
       );
     } else {
       copy.style.opacity = "0";
       copy.style.transform = "translateY(30px)";
       requestAnimationFrame(() => {
-        copy.style.transition = "opacity 400ms ease-out, transform 400ms ease-out";
+        copy.style.transition =
+          "opacity 400ms ease-out, transform 400ms ease-out";
         copy.style.opacity = "1";
         copy.style.transform = "translateY(0)";
       });
@@ -136,28 +139,37 @@ function initSectionNews() {
       const entry = template.content;
       const title = entry.querySelector("[data-news-entry-title]");
       const entryDate = entry.querySelector("[data-news-entry-date]");
-      const entryDescription = entry.querySelector("[data-news-entry-description]");
+      const entryDescription = entry.querySelector(
+        "[data-news-entry-description]"
+      );
       if (!title || !entryDate || !entryDescription) return;
 
       const measure = copy.cloneNode(true);
       measure.style.position = "absolute";
       measure.style.visibility = "hidden";
       measure.style.width = `${copyWidth}px`;
-      measure.querySelector("[data-news-title-link]").textContent = title.textContent.trim();
-      measure.querySelector("[data-news-date]").textContent = entryDate.textContent.trim();
-      measure.querySelector("[data-news-description]").textContent = entryDescription.textContent.trim();
+      measure.querySelector("[data-news-title-link]").textContent =
+        title.textContent.trim();
+      measure.querySelector("[data-news-date]").textContent =
+        entryDate.textContent.trim();
+      measure.querySelector("[data-news-description]").textContent =
+        entryDescription.textContent.trim();
       copy.parentElement.appendChild(measure);
       maxHeight = Math.max(maxHeight, measure.getBoundingClientRect().height);
       measure.remove();
     });
 
-    if (maxHeight) panel.style.setProperty("--news-copy-height", `${Math.ceil(maxHeight)}px`);
+    if (maxHeight)
+      panel.style.setProperty(
+        "--news-copy-height",
+        `${Math.ceil(maxHeight)}px`
+      );
   };
 
   initParallaxSwiper(slider, {
     navigation: {
       prevEl: prevButton,
-      nextEl: nextButton,
+      nextEl: nextButton
     },
     on: {
       init(swiper) {
@@ -169,8 +181,8 @@ function initSectionNews() {
       },
       slideChangeTransitionStart(swiper) {
         syncContentToSlide(swiper);
-      },
-    },
+      }
+    }
   });
 
   measureLongestNewsCopy();
@@ -192,11 +204,11 @@ function initSectionTestimonials() {
     watchOverflow: true,
     navigation: {
       prevEl: section.querySelector("[data-testimonials-prev]"),
-      nextEl: section.querySelector("[data-testimonials-next]"),
+      nextEl: section.querySelector("[data-testimonials-next]")
     },
     breakpoints: {
-      768: { slidesPerView: 2, spaceBetween: 16 },
-    },
+      768: { slidesPerView: 2, spaceBetween: 16 }
+    }
   });
 }
 
@@ -303,10 +315,14 @@ function initSectionMoment() {
     if (button) showImage(Number(button.dataset.momentThumbnail));
   });
 
-  lightbox.querySelector("[data-moment-close]").addEventListener("click", closeLightbox);
-  lightbox.querySelector("[data-moment-previous]").addEventListener("click", () => {
-    showImage(currentIndex - 1);
-  });
+  lightbox
+    .querySelector("[data-moment-close]")
+    .addEventListener("click", closeLightbox);
+  lightbox
+    .querySelector("[data-moment-previous]")
+    .addEventListener("click", () => {
+      showImage(currentIndex - 1);
+    });
   lightbox.querySelector("[data-moment-next]").addEventListener("click", () => {
     showImage(currentIndex + 1);
   });
@@ -327,14 +343,16 @@ function initSectionMoment() {
   lightbox.addEventListener(
     "wheel",
     (event) => {
-      if (!event.target.closest("[data-moment-thumbnails]")) event.preventDefault();
+      if (!event.target.closest("[data-moment-thumbnails]"))
+        event.preventDefault();
     },
     { passive: false }
   );
   lightbox.addEventListener(
     "touchmove",
     (event) => {
-      if (!event.target.closest("[data-moment-thumbnails]")) event.preventDefault();
+      if (!event.target.closest("[data-moment-thumbnails]"))
+        event.preventDefault();
     },
     { passive: false }
   );
