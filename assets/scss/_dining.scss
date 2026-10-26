@@ -2,7 +2,8 @@
   padding-bottom: 64px;
 
   &-inner {
-    padding-top: 64px;
+    width: 100%;
+    padding: 64px 0 0 max(40px, calc((100vw - 1272px) / 2));
   }
 
   &-heading {
@@ -15,11 +16,18 @@
     aspect-ratio: 404 / 545;
     border-radius: 20px;
     overflow: hidden;
+    cursor: pointer;
+
+    &:hover .dining-image {
+      transform: scale(1.05);
+    }
   }
 
   &-image {
     width: 100%;
     height: 100%;
+    transition: transform 0.4s ease;
+    transform-origin: center;
 
     img {
       width: 120%;
@@ -54,10 +62,19 @@
     justify-content: space-between;
   }
 
+  &-menu {
+    transition: color 0.25s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-primary);
+    }
+  }
+
   &-slider {
     --gap: 24px;
     --per-view: 3.4;
-    --pad-left: 124px;
+    --pad-left: 0px;
     --btn-size: 44px;
     --btn-gap: 16px;
 
@@ -69,7 +86,7 @@
     );
 
     .swiper {
-      padding-right: 24px;
+      padding-right: 0;
     }
 
     .swiper-button-next,
@@ -116,6 +133,10 @@
     border-radius: 4px;
     top: 40px;
     margin: 0;
+    transition:
+      color 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
     &::after {
       content: unset;
       font-size: 0;
@@ -133,6 +154,15 @@
       line-height: 1;
       transform: translateY(-1px);
     }
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+
+      &::after {
+        color: var(--color-third);
+      }
+    }
     @media (max-width: 991px) {
       display: none;
     }
@@ -140,5 +170,15 @@
 
   @media (max-width: 991px) {
     padding-bottom: 48px;
+
+    &-inner {
+      padding-left: 32px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    &-inner {
+      padding-left: 24px;
+    }
   }
 }

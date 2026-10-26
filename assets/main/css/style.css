@@ -1014,11 +1014,6 @@ body {
     padding-top: 48px;
   }
 }
-@media (max-width: 575px) {
-  .style-section + .style-section::before {
-    width: calc(100% - 48px);
-  }
-}
 [parallax-image] {
   position: relative;
   overflow: hidden;
@@ -1737,11 +1732,11 @@ body {
   padding-bottom: 64px;
 }
 .dining-inner {
-  padding-top: 64px;
+  width: 100%;
+  padding: 64px 0 0 max(40px, (100vw - 1272px) / 2);
 }
 .dining-heading {
   margin-bottom: 32px;
-  padding-left: max(40px, calc((100vw - 1272px) / 2));
 }
 .dining-box {
   position: relative;
@@ -1749,10 +1744,16 @@ body {
   aspect-ratio: 404/545;
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
+}
+.dining-box:hover .dining-image {
+  transform: scale(1.05);
 }
 .dining-image {
   width: 100%;
   height: 100%;
+  transition: transform 0.4s ease;
+  transform-origin: center;
 }
 .dining-image img {
   width: 120%;
@@ -1782,10 +1783,16 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.dining-menu {
+  transition: color 0.25s ease;
+}
+.dining-menu:hover, .dining-menu:focus-visible {
+  color: var(--color-primary);
+}
 .dining-slider {
   --gap: 24px;
   --per-view: 3.4;
-  --pad-left: max(40px, calc((100vw - 1272px) / 2));
+  --pad-left: 0px;
   --btn-size: 44px;
   --btn-gap: 16px;
   position: relative;
@@ -1795,8 +1802,7 @@ body {
   );
 }
 .dining-slider .swiper {
-  padding-left: var(--pad-left);
-  padding-right: 24px;
+  padding-right: 0;
 }
 .dining-slider .swiper-button-next,
 .dining-slider .swiper-button-prev {
@@ -1836,6 +1842,7 @@ body {
   border-radius: 4px;
   top: 40px;
   margin: 0;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 .dining .btn-custom::after {
   content: unset;
@@ -1854,31 +1861,29 @@ body {
   line-height: 1;
   transform: translateY(-1px);
 }
+.dining .btn-custom:hover, .dining .btn-custom:focus-visible {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.dining .btn-custom:hover::after, .dining .btn-custom:focus-visible::after {
+  color: var(--color-third);
+}
 @media (max-width: 991px) {
   .dining .btn-custom {
     display: none;
-  }
-  .dining-heading {
-    padding-left: 32px;
-  }
-  .dining-slider {
-    --pad-left: 32px;
   }
 }
 @media (max-width: 991px) {
   .dining {
     padding-bottom: 48px;
   }
+  .dining-inner {
+    padding-left: 32px;
+  }
 }
 @media (max-width: 575px) {
-  .dining-heading {
-    width: calc(100% - 48px);
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 0;
-  }
-  .dining-slider {
-    --pad-left: 24px;
+  .dining-inner {
+    padding-left: 24px;
   }
 }
 
@@ -2130,13 +2135,12 @@ body {
     font-size: 13px;
   }
   .sectionNews-controls {
-    justify-content: flex-end;
+    justify-content: center;
     flex: 0 0 auto;
     padding-top: 22px;
   }
   .sectionNews-arrow {
-    flex: 0 0 72px;
-    width: 72px;
+    flex: 0 1 120px;
     height: 32px;
   }
 }
@@ -2234,6 +2238,12 @@ body {
   font: inherit;
   font-size: 25px;
   cursor: pointer;
+}
+.sectionTestimonials-arrow span {
+  display: block;
+  transform: translateY(-1px);
+}
+.sectionTestimonials-arrow {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 .sectionTestimonials-arrow:hover, .sectionTestimonials-arrow:focus-visible {
@@ -2573,6 +2583,9 @@ body {
   .sectionMoment-heading {
     align-items: flex-end;
   }
+  .sectionMoment-title {
+    font-size: 30px;
+  }
   .sectionMoment-all {
     padding: 6px 9px;
     font-size: 11px;
@@ -2623,4 +2636,8 @@ body {
   .moment-control {
     transition-duration: 0.01ms;
   }
+}
+.sectionTestimonials-arrow span {
+  display: block;
+  transform: translateY(-1px);
 }

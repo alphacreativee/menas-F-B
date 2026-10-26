@@ -107,6 +107,10 @@
     font: inherit;
     font-size: 25px;
     cursor: pointer;
+    span {
+      display: block;
+      transform: translateY(-1px);
+    }
     transition:
       background-color 0.2s ease,
       color 0.2s ease;
