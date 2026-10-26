@@ -2,8 +2,9 @@
   padding-bottom: 64px;
 
   &-inner {
+    --dining-gutter: max(40px, calc((100vw - 1272px) / 2));
     width: 100%;
-    padding: 64px 0 0 max(40px, calc((100vw - 1272px) / 2));
+    padding: 64px 0 0 var(--dining-gutter);
   }
 
   &-heading {
@@ -21,6 +22,12 @@
     &:hover .dining-image {
       transform: scale(1.05);
     }
+  }
+
+  &-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
   }
 
   &-image {
@@ -48,6 +55,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 24px;
+    pointer-events: none;
   }
 
   &-name {
@@ -60,6 +68,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    pointer-events: auto;
   }
 
   &-menu {
@@ -86,7 +95,10 @@
     );
 
     .swiper {
-      padding-right: 0;
+      width: calc(100% + var(--dining-gutter));
+      margin-left: calc(-1 * var(--dining-gutter));
+      padding-left: var(--dining-gutter);
+      padding-right: var(--gap);
     }
 
     .swiper-button-next,
@@ -108,6 +120,10 @@
     .swiper-button-prev {
       left: calc(var(--pad-left) + var(--slide-w) * 3 + var(--gap) * 2);
       transform: translate(calc(-200% - 22px - var(--btn-gap)), -50%);
+    }
+
+    @media (max-width: 991px) {
+      --gap: 16px;
     }
 
     @media (max-width: 991px) {
@@ -172,13 +188,13 @@
     padding-bottom: 48px;
 
     &-inner {
-      padding-left: 32px;
+      --dining-gutter: 32px;
     }
   }
 
   @media (max-width: 575px) {
     &-inner {
-      padding-left: 24px;
+      --dining-gutter: 24px;
     }
   }
 }

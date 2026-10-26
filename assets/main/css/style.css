@@ -1732,8 +1732,9 @@ body {
   padding-bottom: 64px;
 }
 .dining-inner {
+  --dining-gutter: max(40px, calc((100vw - 1272px) / 2));
   width: 100%;
-  padding: 64px 0 0 max(40px, (100vw - 1272px) / 2);
+  padding: 64px 0 0 var(--dining-gutter);
 }
 .dining-heading {
   margin-bottom: 32px;
@@ -1748,6 +1749,11 @@ body {
 }
 .dining-box:hover .dining-image {
   transform: scale(1.05);
+}
+.dining-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 .dining-image {
   width: 100%;
@@ -1772,6 +1778,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   padding: 24px;
+  pointer-events: none;
 }
 .dining-name {
   border-bottom: 1px dashed var(--color-white);
@@ -1782,6 +1789,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  pointer-events: auto;
 }
 .dining-menu {
   transition: color 0.25s ease;
@@ -1802,7 +1810,10 @@ body {
   );
 }
 .dining-slider .swiper {
-  padding-right: 0;
+  width: calc(100% + var(--dining-gutter));
+  margin-left: calc(-1 * var(--dining-gutter));
+  padding-left: var(--dining-gutter);
+  padding-right: var(--gap);
 }
 .dining-slider .swiper-button-next,
 .dining-slider .swiper-button-prev {
@@ -1821,6 +1832,11 @@ body {
 .dining-slider .swiper-button-prev {
   left: calc(var(--pad-left) + var(--slide-w) * 3 + var(--gap) * 2);
   transform: translate(calc(-200% - 22px - var(--btn-gap)), -50%);
+}
+@media (max-width: 991px) {
+  .dining-slider {
+    --gap: 16px;
+  }
 }
 @media (max-width: 991px) {
   .dining-slider .swiper-button-next {
@@ -1878,12 +1894,12 @@ body {
     padding-bottom: 48px;
   }
   .dining-inner {
-    padding-left: 32px;
+    --dining-gutter: 32px;
   }
 }
 @media (max-width: 575px) {
   .dining-inner {
-    padding-left: 24px;
+    --dining-gutter: 24px;
   }
 }
 
@@ -2637,7 +2653,11 @@ body {
     transition-duration: 0.01ms;
   }
 }
-.sectionTestimonials-arrow span {
-  display: block;
-  transform: translateY(-1px);
+.dining-slider .swiper {
+  padding-right: var(--gap);
+}
+@media (max-width: 991px) {
+  .dining-slider {
+    --gap: 16px;
+  }
 }
