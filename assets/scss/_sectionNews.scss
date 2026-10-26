@@ -239,6 +239,10 @@
 
 @media (max-width: 767px) {
   .sectionNews {
+    &-all {
+      font-size: 11px;
+    }
+
     &-heading {
       width: calc(100% - 48px);
     }
@@ -291,13 +295,18 @@
     }
 
     &-controls {
-      justify-content: center;
-      flex: 0 0 auto;
-      padding-top: 22px;
+      position: absolute;
+      right: 12px;
+      bottom: 0;
+      z-index: 2;
+      justify-content: flex-end;
+      gap: 8px;
+      padding-top: 0;
     }
 
     &-arrow {
-      flex: 0 1 120px;
+      flex: 0 0 72px;
+      width: 72px;
       height: 32px;
     }
   }

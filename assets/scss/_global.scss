@@ -84,6 +84,17 @@
     padding-top: 48px;
   }
 }
+
+@media (max-width: 767px) {
+  .style-section + .style-section::before {
+    width: calc(100% - 48px);
+  }
+
+  .sectionMoment-all,
+  .sectionNews-all {
+    font-size: 11px;
+  }
+}
 // parallax image
 [parallax-image] {
   position: relative;

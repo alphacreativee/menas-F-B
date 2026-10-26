@@ -289,7 +289,7 @@
   }
 
   .sectionMoment-title {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .sectionMoment-all {
@@ -344,6 +344,12 @@
     flex-basis: 62px;
     width: 62px;
     height: 46px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sectionMoment-all {
+    font-size: 11px;
   }
 }
 
