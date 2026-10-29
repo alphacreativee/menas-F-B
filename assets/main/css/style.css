@@ -2678,3 +2678,41 @@ body {
     transition-duration: 0.01ms;
   }
 }
+.intro {
+  padding: 140px 0;
+  background-image: url("../../images/icons/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.intro-inner {
+  width: calc(100% - max(80px, 100vw - 1272px));
+  max-width: 1272px;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+}
+.intro-image {
+  aspect-ratio: 489/400;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.intro-content {
+  padding-left: 120px;
+}
+.intro-content h3 {
+  margin-bottom: 48px;
+}
+.intro-content p {
+  margin-bottom: 24px;
+}
+.intro-content p:last-child {
+  margin-bottom: 0;
+}

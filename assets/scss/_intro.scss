@@ -1,0 +1,38 @@
+.intro {
+  padding: 140px 0;
+  background-image: url("../../images/icons/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-inner {
+    width: calc(100% - max(80px, calc(100vw - 1272px)));
+    max-width: 1272px;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+  }
+  &-image {
+    aspect-ratio: 489 / 400;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-content {
+    padding-left: 120px;
+    h3 {
+      margin-bottom: 48px;
+    }
+    p {
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
