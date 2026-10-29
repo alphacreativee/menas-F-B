@@ -5,6 +5,9 @@
   z-index: 1;
   overflow: hidden;
   background-color: var(--color-black);
+  &.short-height {
+    height: 60vh;
+  }
   &::before {
     content: "";
     position: absolute;

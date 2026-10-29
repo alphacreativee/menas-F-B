@@ -1371,6 +1371,9 @@ body {
   overflow: hidden;
   background-color: var(--color-black);
 }
+.banner.short-height {
+  height: 60vh;
+}
 .banner::before {
   content: "";
   position: absolute;
@@ -2673,13 +2676,5 @@ body {
   .moment-thumbnail,
   .moment-control {
     transition-duration: 0.01ms;
-  }
-}
-@media (max-width: 767px) {
-  .sectionNews-all {
-    font-size: 11px;
-  }
-  .sectionMoment-all {
-    font-size: 11px;
   }
 }
