@@ -1,0 +1,36 @@
+.intro-desc {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  padding: 120px 24px;
+  background-color: var(--color-white-2);
+  background-image: url("../../images/icons/bg.png");
+  background-position: center;
+  background-size: cover;
+
+  &-inner {
+    width: min(100%, 600px);
+  }
+
+  &-copy {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+  }
+}
+
+.intro-desc + .restaurants::before {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .intro-desc {
+    min-height: 220px;
+    padding: 42px 24px;
+  }
+
+  .intro-desc-copy {
+    font-size: 16px;
+  }
+}
