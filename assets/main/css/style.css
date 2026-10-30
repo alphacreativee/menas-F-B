@@ -996,6 +996,10 @@ body {
   background-color: var(--color-white-2);
 }
 
+.style-section.no-border::before {
+  content: unset !important;
+}
+
 .style-section + .style-section {
   padding-top: 64px;
 }
