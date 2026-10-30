@@ -960,6 +960,10 @@ body {
   background-color: var(--color-primary);
 }
 
+.style-spacing {
+  height: 64px;
+}
+
 .rolling-text {
   position: relative;
   overflow: hidden;
@@ -3135,7 +3139,9 @@ body {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   min-height: 100px;
-  border-bottom: 1px solid #c6c09f;
+}
+.imprint-grid {
+  margin-bottom: 64px;
 }
 .imprint-logo {
   display: flex;

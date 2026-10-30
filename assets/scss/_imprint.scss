@@ -4,7 +4,7 @@
   align-items: center;
   padding-bottom: 200px;
   position: relative;
-  isolation: isolate; // để z-index: -1 không chui ra sau nền của cha
+  isolation: isolate;
 
   &::after {
     content: "";
@@ -42,9 +42,10 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     min-height: 100px;
-    border-bottom: 1px solid #c6c09f;
   }
-
+  &-grid {
+    margin-bottom: 64px;
+  }
   &-logo {
     display: flex;
     justify-content: center;
