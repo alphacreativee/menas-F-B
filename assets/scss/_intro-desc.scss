@@ -4,7 +4,7 @@
   place-items: center;
   padding: 120px 24px;
   background-color: var(--color-white-2);
-  background-image: url("../../images/icons/bg.png");
+  background-image: var(--bg-section, url("../../images/icons/bg.png"));
   background-position: center;
   background-size: cover;
 

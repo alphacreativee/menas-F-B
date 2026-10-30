@@ -1,5 +1,27 @@
 #footer {
+  position: relative;
   background-color: var(--color-white-2);
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    width: calc(100% - max(80px, calc(100vw - 1272px)));
+    border-top: 1px solid var(--color-third);
+    content: "";
+    transform: translateX(-50%);
+  }
+
+  &.not-line-top::before {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer::before {
+    width: calc(100% - 48px);
+  }
 }
 
 .footer-container {
