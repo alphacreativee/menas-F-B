@@ -1,0 +1,53 @@
+.imprint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+  position: relative;
+  isolation: isolate; // để z-index: -1 không chui ra sau nền của cha
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    z-index: -1;
+    background-image:
+      linear-gradient(
+        to bottom,
+        #fffaeb 0%,
+        #fffaeb 75%,
+        rgba(255, 250, 235, 0.32) 100%
+      ),
+      var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 56px 56px;
+  }
+
+  &-inner {
+    width: calc(100% - max(80px, calc(100vw - 1272px)));
+    max-width: 1272px;
+  }
+
+  &-heading {
+    margin-bottom: 54px;
+  }
+
+  &-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 100px;
+    border-bottom: 1px solid #c6c09f;
+  }
+
+  &-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

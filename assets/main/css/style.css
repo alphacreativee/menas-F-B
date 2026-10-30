@@ -996,6 +996,10 @@ body {
   background-color: var(--color-white-2);
 }
 
+.style-section.no-border::before {
+  content: unset !important;
+}
+
 .style-section + .style-section {
   padding-top: 64px;
 }
@@ -2715,4 +2719,46 @@ body {
 }
 .intro-content p:last-child {
   margin-bottom: 0;
+}
+
+.imprint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+  position: relative;
+  isolation: isolate;
+}
+.imprint::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  z-index: -1;
+  background-image: linear-gradient(to bottom, #fffaeb 0%, #fffaeb 75%, rgba(255, 250, 235, 0.32) 100%), var(--bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0 0 56px 56px;
+}
+.imprint-inner {
+  width: calc(100% - max(80px, 100vw - 1272px));
+  max-width: 1272px;
+}
+.imprint-heading {
+  margin-bottom: 54px;
+}
+.imprint-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 100px;
+  border-bottom: 1px solid #c6c09f;
+}
+.imprint-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
