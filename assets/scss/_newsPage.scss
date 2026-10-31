@@ -56,6 +56,11 @@
   &-arrow {
     min-width: 48px;
     font-size: 20px;
+
+    span {
+      display: block;
+      transform: translateY(-1px);
+    }
   }
 
   &-ellipsis {
@@ -82,7 +87,7 @@
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .newsPage {
     padding: 36px 0 56px;
 

@@ -2329,7 +2329,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-top: 10px;
-  color: var(--color-third);
+  color: var(--color-third) !important;
   font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -2342,10 +2342,11 @@ body {
   display: inline-block;
   font-size: 20px;
   line-height: 0.8;
+  transform: translateY(-1px);
   transition: transform 0.25s ease;
 }
 .cardNews2-readmore:hover span, .cardNews2-readmore:focus-visible span {
-  transform: translateX(5px);
+  transform: translate(5px, -1px);
 }
 
 @media (max-width: 767px) {
@@ -2411,6 +2412,10 @@ body {
   min-width: 48px;
   font-size: 20px;
 }
+.newsPagination-arrow span {
+  display: block;
+  transform: translateY(-1px);
+}
 .newsPagination-ellipsis {
   display: inline-flex;
   min-width: 24px;
@@ -2431,7 +2436,7 @@ body {
     row-gap: 40px;
   }
 }
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .newsPage {
     padding: 36px 0 56px;
   }
