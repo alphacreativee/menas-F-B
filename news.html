@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tin tức | Menas</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/BeautiqueDisplay/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/Fahkwang/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css?v=20261031-1" />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body>
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentSegment = (window.location.pathname.split("/").pop() || "").toLowerCase();
+          document.querySelectorAll(".header-menu ul>li>a").forEach((link) => {
+            const segment = (link.getAttribute("href") || "").replace(/^\.\//, "").split("/").pop().toLowerCase();
+            if (segment === currentSegment) link.classList.add("active");
+          });
+        });
+    </script>
+    <header id="header" class="header position-fixed"></header>
+
+    <main>
+      <section class="banner short-height">
+        <div class="banner-inner">
+          <div class="banner-slider">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="banner-image">
+                    <img src="./assets/images/del/img-1.jpg" alt="Đầu bếp chuẩn bị món ăn tại Menas" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h1 class="banner-content font-heading color-primary heading-1 text-center fw-500" el-txt-line-auto-banner>Tin tức</h1>
+        </div>
+      </section>
+
+      <section class="newsPage style-section" aria-label="Danh sách tin tức Menas">
+        <div class="newsPage-inner">
+          <div class="newsPage-grid">
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/moment-5.avif" alt="Không gian ẩm thực tại Menas Mall" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Nhịp sống tại Menas Mall</a></h2>
+              <p class="cardNews2-description b4">Khám phá những câu chuyện ẩm thực, mua sắm và gặp gỡ tại Menas Mall Saigon Airport. Cập nhật tin tức và cảm hứng cho mỗi lần ghé thăm.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/moment-4.avif" alt="Không gian cầu thang tại Menas" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Hẹn nhau cuối tuần</a></h2>
+              <p class="cardNews2-description b4">Tìm cảm hứng cho buổi hẹn cuối tuần với ẩm thực và những khoảnh khắc sum vầy. Theo dõi thông tin sự kiện tại Menas Mall Saigon Airport.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/moment-3.avif" alt="Không gian nhà hàng ấm cúng" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Câu chuyện vị Việt</a></h2>
+              <p class="cardNews2-description b4">Khám phá nét tinh tế của ẩm thực Việt qua nguyên liệu quen thuộc và cách trình bày đầy cảm hứng. Mỗi món ăn là một câu chuyện để sẻ chia.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/moment-2.avif" alt="Món pizza được phục vụ tại bàn" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Điểm hẹn ẩm thực</a></h2>
+              <p class="cardNews2-description b4">Cùng khám phá những hương vị dành cho buổi gặp gỡ bạn bè và gia đình. Theo dõi các hoạt động ẩm thực tại Menas Mall Saigon Airport.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/img-4.jpg" alt="Không gian nhà hàng Menas" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Góc nhìn từ gian bếp</a></h2>
+              <p class="cardNews2-description b4">Tìm hiểu câu chuyện phía sau những món ăn, từ lựa chọn nguyên liệu đến nghệ thuật bày biện. Một góc nhìn gần gũi dành cho người yêu ẩm thực.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/img-5.jpg" alt="Món ăn chia sẻ cùng gia đình" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Gắn kết cùng gia đình</a></h2>
+              <p class="cardNews2-description b4">Lên ý tưởng cho ngày cả nhà bên nhau với bữa ăn ấm cúng và trải nghiệm chung. Cập nhật thông tin hoạt động tại Menas Mall.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/img-6.jpg" alt="Món ăn đặc sắc tại nhà hàng" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Cảm hứng theo mùa</a></h2>
+              <p class="cardNews2-description b4">Khám phá câu chuyện nguyên liệu và hương vị theo mùa. Gợi ý cho thực khách yêu thích trải nghiệm ẩm thực và những cách kết hợp mới.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/img-7.jpg" alt="Bàn ăn được chuẩn bị tại nhà hàng" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Kết nối qua hương vị</a></h2>
+              <p class="cardNews2-description b4">Một bữa ăn ngon mở đầu cho những cuộc trò chuyện đáng nhớ. Theo dõi thông tin các buổi gặp gỡ và hoạt động ẩm thực tại Menas Mall.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="cardNews2">
+              <a class="cardNews2-image" href="./news-detail.html"><img src="./assets/images/del/img.jpg" alt="Món ăn được hoàn thiện bởi đầu bếp" /></a>
+              <h2 class="cardNews2-title b1 font-heading"><a href="./news-detail.html">Lịch hẹn tại Menas Mall</a></h2>
+              <p class="cardNews2-description b4">Theo dõi tin tức và hoạt động tại Menas Mall Saigon Airport. Cùng khám phá lựa chọn phù hợp cho những người thân yêu.</p>
+              <a class="cardNews2-readmore b4" href="./news-detail.html">CHI TIẾT <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <nav class="newsPagination" aria-label="Phân trang tin tức">
+            <ul class="newsPagination-list">
+              <li><a class="newsPagination-link newsPagination-arrow" href="?paged=2" aria-label="Trang trước">←</a></li>
+              <li><a class="newsPagination-link" href="?paged=1">1</a></li>
+              <li><a class="newsPagination-link" href="?paged=2">2</a></li>
+              <li><a class="newsPagination-link" href="?paged=3" aria-current="page">3</a></li>
+              <li class="newsPagination-ellipsis" aria-hidden="true">…</li>
+              <li><a class="newsPagination-link" href="?paged=9">9</a></li>
+              <li><a class="newsPagination-link" href="?paged=10">10</a></li>
+              <li><a class="newsPagination-link newsPagination-arrow" href="?paged=4" aria-label="Trang tiếp theo">→</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => { document.getElementById("footer").innerHTML = data; });
+    </script>
+    <footer id="footer" class="style-section"></footer>
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+    <script type="module" src="./assets/main/js/home.min.js"></script>
+  </body>
+</html>

@@ -45,88 +45,9 @@
     gap: 16px;
   }
 
-  .cardNews2 {
-    width: auto;
-    min-width: 0;
-    flex-shrink: 1;
-  }
-
-  &-image {
-    display: block;
-    aspect-ratio: 389 / 433;
-    overflow: hidden;
-    border-radius: 14px;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    &:hover img {
-      transform: scale(1.04);
-    }
-  }
-
-  .cardNews2-title {
-    margin: 12px 0 6px;
-    color: var(--color-third);
-    font-weight: 700;
-    line-height: 1.25;
-    transition: color 0.25s ease;
-  }
-
-  .cardNews2:hover .cardNews2-title,
-  .cardNews2:focus-within .cardNews2-title {
-    color: var(--color-primary);
-  }
-
-  .cardNews2:has(.sectionNews2-readmore:hover) .cardNews2-title,
-  .cardNews2:has(.sectionNews2-readmore:focus-visible) .cardNews2-title {
-    color: var(--color-third);
-  }
-
-  &-description {
-    min-height: 54px;
-    color: var(--color-third);
-    font-family: var(--font-body);
-    line-height: 1.5;
-  }
-
-  &-readmore {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    color: var(--color-third) !important;
-    font-family: var(--font-body);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    transition: color 0.25s ease;
-
-    span {
-      display: inline-block;
-      font-size: 20px;
-      line-height: 0.8;
-      transition: transform 0.25s ease;
-    }
-
-    &:hover span,
-    &:focus-visible span {
-      transform: translateX(5px);
-    }
-  }
-
   &-controls {
     display: none;
   }
-}
-
-.sectionNews2 a.sectionNews2-readmore:hover,
-.sectionNews2 a.sectionNews2-readmore:focus-visible {
-  color: var(--color-primary);
 }
 
 @media (max-width: 767px) {
@@ -150,24 +71,6 @@
   .sectionNews2-list {
     display: flex;
     gap: 0;
-  }
-
-  .cardNews2 {
-    height: auto;
-  }
-
-  .sectionNews2-image {
-    aspect-ratio: 389 / 433;
-    border-radius: 12px;
-  }
-
-  .sectionNews2 .cardNews2-title {
-    margin-top: 10px;
-  }
-
-  .sectionNews2-description {
-    min-height: 0;
-    font-size: 11px;
   }
 
   .sectionNews2-controls {
