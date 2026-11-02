@@ -1,6 +1,6 @@
 export function customDropdown() {
   const dropdowns = document.querySelectorAll(
-    ".dropdown-custom, .dropdown-custom-select"
+    ".dropdown-custom, .dropdown-custom-select",
   );
   if (!dropdowns.length) return;
   dropdowns.forEach((dropdown) => {
@@ -144,7 +144,7 @@ export function getDateLightPick() {
     field: document.getElementById("datepicker"),
     minDate: new Date(),
     singleDate: false,
-    numberOfMonths: 2
+    numberOfMonths: 2,
     // lang: "en-US",
   });
 }
@@ -174,7 +174,7 @@ export function headerScroll() {
       } else {
         header.classList.remove("scrolled");
       }
-    }
+    },
   });
 
   return trigger;
@@ -197,7 +197,7 @@ export function header() {
   const listButton = menu.querySelector(".header-list-button"); // cả khối
   const bottom = menu.querySelector(".header-menu-bottom");
   const lineItems = [...mainItems, ...subItems, listButton, bottom].filter(
-    Boolean
+    Boolean,
   );
 
   // Trạng thái ban đầu: ẩn
@@ -212,19 +212,19 @@ export function header() {
     .to(
       mainItems,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.08 },
-      0.4
+      0.4,
     )
     .to(
       subItems,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.08 },
-      ">-0.3"
+      ">-0.3",
     );
 
   if (listButton) {
     tl.to(
       listButton,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" },
-      ">-0.3"
+      ">-0.3",
     );
   }
 
@@ -232,7 +232,7 @@ export function header() {
     tl.to(
       bottom,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" },
-      ">-0.4"
+      ">-0.4",
     );
   }
 
@@ -286,7 +286,7 @@ export function imageParallax() {
       mm.add(
         {
           isMobile: "(max-width: 990px)",
-          isDesktop: "(min-width: 991px)"
+          isDesktop: "(min-width: 991px)",
         },
         (context) => {
           const { isMobile } = context.conditions;
@@ -301,11 +301,11 @@ export function imageParallax() {
               start: "top 70%",
               end: "bottom top",
               scrub: 1,
-              invalidateOnRefresh: true
+              invalidateOnRefresh: true,
               // markers: true,
-            }
+            },
           });
-        }
+        },
       );
     };
 
@@ -337,18 +337,18 @@ export function sliderW() {
 
       navigation: {
         nextEl: wrapper.querySelector(".swiper-button-next"),
-        prevEl: wrapper.querySelector(".swiper-button-prev")
+        prevEl: wrapper.querySelector(".swiper-button-prev"),
       },
       breakpoints: {
         576: {
           slidesPerView: 2,
-          spaceBetween: 16
+          spaceBetween: 16,
         },
         992: {
           slidesPerView: 3.4,
-          spaceBetween: 24
-        }
-      }
+          spaceBetween: 24,
+        },
+      },
     });
   });
 }
@@ -377,10 +377,10 @@ export function animationText() {
             opacity: 1,
             duration: 1.5,
             ease: "power3.inOut",
-            stagger: 0.3
-          }
+            stagger: 0.3,
+          },
         );
-      }
+      },
     });
   });
   gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -409,12 +409,80 @@ export function animationText() {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
-              once: true
-            }
-          }
+              once: true,
+            },
+          },
         );
-      }
+      },
     });
+  });
+}
+export function animationTextBox() {
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  document.querySelectorAll("[animation-text-box]").forEach((box) => {
+    if (box.dataset.scriptInitialized) return;
+    box.dataset.scriptInitialized = "true";
+
+    const one = box.querySelector("[text-one]");
+    const two = box.querySelector("[text-two]");
+
+    // Nếu text-two có nhiều <p> thì fade từng đoạn, không thì fade cả khối
+    const paragraphs = two ? two.querySelectorAll("p") : [];
+    const fadeTargets = paragraphs.length ? paragraphs : two ? [two] : [];
+
+    gsap.set(fadeTargets, { y: 30, autoAlpha: 0 });
+
+    // Timeline chung, chạy 1 lần khi cuộn tới box
+    const tl = gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: box,
+        start: "top 80%",
+        once: true,
+        onEnter: () => tl.play(),
+      },
+    });
+
+    // text-one: words trượt lên
+    if (one) {
+      SplitText.create(one, {
+        type: "words",
+        mask: "words",
+        wordsClass: "word",
+        onSplit: (self) => {
+          gsap.set(one, { visibility: "visible" });
+          gsap.set(self.words, { y: "100%", opacity: 0 });
+
+          tl.to(
+            self.words,
+            {
+              y: "0%",
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              stagger: 0.04,
+            },
+            0,
+          );
+        },
+      });
+    }
+
+    // text-two: fade lên, bắt đầu sau khi title chạy một lúc
+    if (fadeTargets.length) {
+      tl.to(
+        fadeTargets,
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.15,
+        },
+        one ? 0.5 : 0,
+      );
+    }
   });
 }
 export function sliderHero() {
@@ -439,9 +507,9 @@ export function sliderHero() {
           ? {
               delay: 4000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: false
+              pauseOnMouseEnter: false,
             }
-          : false
+          : false,
     });
   });
 }

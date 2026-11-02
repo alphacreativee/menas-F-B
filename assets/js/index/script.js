@@ -8,6 +8,7 @@ import {
   sliderW,
   animationText,
   sliderHero,
+  animationTextBox,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -83,6 +84,7 @@ function init() {
   headerScroll();
   sliderW();
   sliderHero();
+  animationTextBox();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
