@@ -5,7 +5,9 @@
   padding-bottom: 200px;
   position: relative;
   isolation: isolate;
-
+  @media (max-width: 991px) {
+    padding-bottom: 120px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -26,11 +28,19 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0 0 56px 56px;
+    @media (max-width: 991px) {
+      left: 5px;
+      right: 5px;
+    }
   }
 
   &-inner {
     width: calc(100% - max(80px, calc(100vw - 1272px)));
     max-width: 1272px;
+    @media (max-width: 991px) {
+      width: 100%;
+      max-width: calc(100% - 40px);
+    }
   }
 
   &-heading {
@@ -42,9 +52,11 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     min-height: 100px;
+    border-bottom: 1px solid #c6c09f;
+    gap: 12px;
   }
   &-grid {
-    margin-bottom: 64px;
+    // margin-bottom: 64px;
   }
   &-logo {
     display: flex;
