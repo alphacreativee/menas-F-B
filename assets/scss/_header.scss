@@ -5,6 +5,24 @@
   top: 0;
   --color-main-line: var(--color-white);
 
+  &.header-default {
+    --color-main-line: var(--color-third);
+
+    .header-inner {
+      background-color: var(--color-white-2);
+    }
+
+    .header-logo img.logo-active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .btn-global.btn-bg {
+      background-color: var(--color-third);
+      color: var(--color-white);
+    }
+  }
+
   &.scrolled {
     --color-main-line: var(--color-third);
     .header-inner {
