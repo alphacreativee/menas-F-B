@@ -2776,16 +2776,23 @@ body {
     margin: 0 0 18px;
   }
   .relatedPost {
-    width: calc(100% - 20px);
-    padding: 26px 20px 32px;
-    border-radius: 18px;
+    width: 100%;
+    padding: 26px 0 32px;
+    border-radius: 0;
   }
   .relatedPost-inner {
     width: 100%;
   }
+  .relatedPost-title {
+    padding: 0 20px;
+  }
   .relatedPost-track {
     grid-auto-columns: 82%;
     gap: 12px;
+    width: calc(100% - 20px);
+    margin-left: 20px;
+    padding-left: 0;
+    padding-right: 20px;
     scroll-snap-type: x mandatory;
   }
 }
