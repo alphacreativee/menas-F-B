@@ -1,6 +1,6 @@
 export function customDropdown() {
   const dropdowns = document.querySelectorAll(
-    ".dropdown-custom, .dropdown-custom-select"
+    ".dropdown-custom, .dropdown-custom-select",
   );
   if (!dropdowns.length) return;
   dropdowns.forEach((dropdown) => {
@@ -144,7 +144,7 @@ export function getDateLightPick() {
     field: document.getElementById("datepicker"),
     minDate: new Date(),
     singleDate: false,
-    numberOfMonths: 2
+    numberOfMonths: 2,
     // lang: "en-US",
   });
 }
@@ -174,7 +174,7 @@ export function headerScroll() {
       } else {
         header.classList.remove("scrolled");
       }
-    }
+    },
   });
 
   return trigger;
@@ -197,7 +197,7 @@ export function header() {
   const listButton = menu.querySelector(".header-list-button"); // cả khối
   const bottom = menu.querySelector(".header-menu-bottom");
   const lineItems = [...mainItems, ...subItems, listButton, bottom].filter(
-    Boolean
+    Boolean,
   );
 
   // Trạng thái ban đầu: ẩn
@@ -212,19 +212,19 @@ export function header() {
     .to(
       mainItems,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.08 },
-      0.4
+      0.4,
     )
     .to(
       subItems,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out", stagger: 0.08 },
-      ">-0.3"
+      ">-0.3",
     );
 
   if (listButton) {
     tl.to(
       listButton,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" },
-      ">-0.3"
+      ">-0.3",
     );
   }
 
@@ -232,7 +232,7 @@ export function header() {
     tl.to(
       bottom,
       { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" },
-      ">-0.4"
+      ">-0.4",
     );
   }
 
@@ -286,7 +286,7 @@ export function imageParallax() {
       mm.add(
         {
           isMobile: "(max-width: 990px)",
-          isDesktop: "(min-width: 991px)"
+          isDesktop: "(min-width: 991px)",
         },
         (context) => {
           const { isMobile } = context.conditions;
@@ -301,11 +301,11 @@ export function imageParallax() {
               start: "top 70%",
               end: "bottom top",
               scrub: 1,
-              invalidateOnRefresh: true
+              invalidateOnRefresh: true,
               // markers: true,
-            }
+            },
           });
-        }
+        },
       );
     };
 
@@ -337,18 +337,18 @@ export function sliderW() {
 
       navigation: {
         nextEl: wrapper.querySelector(".swiper-button-next"),
-        prevEl: wrapper.querySelector(".swiper-button-prev")
+        prevEl: wrapper.querySelector(".swiper-button-prev"),
       },
       breakpoints: {
         576: {
           slidesPerView: 2,
-          spaceBetween: 16
+          spaceBetween: 16,
         },
         992: {
           slidesPerView: 3.4,
-          spaceBetween: 24
-        }
-      }
+          spaceBetween: 24,
+        },
+      },
     });
   });
 }
@@ -377,10 +377,10 @@ export function animationText() {
             opacity: 1,
             duration: 1.5,
             ease: "power3.inOut",
-            stagger: 0.3
-          }
+            stagger: 0.3,
+          },
         );
-      }
+      },
     });
   });
   gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -409,11 +409,11 @@ export function animationText() {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
-              once: true
-            }
-          }
+              once: true,
+            },
+          },
         );
-      }
+      },
     });
   });
 }
@@ -440,8 +440,8 @@ export function animationTextBox() {
         trigger: box,
         start: "top 80%",
         once: true,
-        onEnter: () => tl.play()
-      }
+        onEnter: () => tl.play(),
+      },
     });
 
     // text-one: words trượt lên
@@ -461,11 +461,11 @@ export function animationTextBox() {
               opacity: 1,
               duration: 0.8,
               ease: "power3.out",
-              stagger: 0.04
+              stagger: 0.04,
             },
-            0
+            0,
           );
-        }
+        },
       });
     }
 
@@ -478,9 +478,9 @@ export function animationTextBox() {
           autoAlpha: 1,
           duration: 0.9,
           ease: "power3.out",
-          stagger: 0.15
+          stagger: 0.15,
         },
-        one ? 0.5 : 0
+        one ? 0.5 : 0,
       );
     }
   });
@@ -507,9 +507,68 @@ export function sliderHero() {
           ? {
               delay: 4000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: false
+              pauseOnMouseEnter: false,
             }
-          : false
+          : false,
+    });
+  });
+}
+export function formValidate() {
+  document.querySelectorAll(".banner-form form").forEach((form) => {
+    if (form.dataset.scriptInitialized) return;
+    form.dataset.scriptInitialized = "true";
+
+    form.setAttribute("novalidate", ""); // tắt popup mặc định của trình duyệt
+
+    const rules = {
+      fullname: (v) => v.length >= 2,
+      phone: (v) => /^\+?[0-9\s().-]{8,16}$/.test(v),
+      email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      website: (v) => {
+        if (!v) return true; // không bắt buộc
+        try {
+          new URL(/^https?:\/\//i.test(v) ? v : "https://" + v);
+          return true;
+        } catch {
+          return false;
+        }
+      },
+    };
+
+    const validate = (input) => {
+      const value = input.value.trim();
+      let valid = true;
+
+      if (input.required && !value) valid = false;
+      else if (value && rules[input.name]) valid = rules[input.name](value);
+      else if (!value && rules[input.name] && input.required) valid = false;
+
+      input.closest(".form-item")?.classList.toggle("has-error", !valid);
+      return valid;
+    };
+
+    const fields = form.querySelectorAll("input, textarea");
+
+    fields.forEach((input) => {
+      input.addEventListener("blur", () => validate(input));
+      input.addEventListener("input", () => {
+        if (input.closest(".form-item")?.classList.contains("has-error")) {
+          validate(input);
+        }
+      });
+    });
+
+    form.addEventListener("submit", (e) => {
+      let firstInvalid = null;
+
+      fields.forEach((input) => {
+        if (!validate(input) && !firstInvalid) firstInvalid = input;
+      });
+
+      if (firstInvalid) {
+        e.preventDefault();
+        firstInvalid.focus();
+      }
     });
   });
 }
