@@ -8,6 +8,177 @@
   &.short-height {
     height: 60vh;
   }
+  &.two-col {
+    .banner-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 767px) {
+      height: auto;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.55);
+      z-index: 2;
+      pointer-events: none;
+    }
+  }
+  &-contact {
+    position: relative;
+    z-index: 4;
+    max-width: 50%;
+    @media (max-width: 767px) {
+      max-width: 100%;
+    }
+    .list-phone {
+      color: var(--color-white);
+      margin-top: 24px;
+    }
+    h3 {
+      margin-bottom: 24px;
+    }
+    a,
+    p {
+      color: var(--color-white);
+    }
+    .box-contact {
+      a,
+      p {
+        color: var(--color-white);
+      }
+      a {
+        display: block;
+        width: max-content;
+      }
+    }
+    .box-social {
+      margin-top: 12px;
+      svg {
+        path {
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+  &-form {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form-row {
+      button {
+        width: 100%;
+        height: 36px;
+      }
+      &.two-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+    }
+  }
+  &-right {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @media (max-width: 991px) {
+      padding: 48px 0 56px;
+    }
+    form {
+      max-width: calc(100% - 180px);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      @media (max-width: 991px) {
+        max-width: calc(100% - 40px);
+      }
+      .form-item {
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 47px;
+          padding: 0 16px;
+          border: 1px solid var(--color-white);
+          border-radius: 8px;
+          background: transparent;
+          outline: none;
+          transition: border-color 0.3s ease;
+          color: var(--color-white);
+          &:focus {
+            border-color: var(--color-primary);
+          }
+        }
+
+        textarea {
+          width: 100%;
+          min-height: 120px;
+          padding: 16px;
+          border: 1px solid var(--color-white);
+          border-radius: 8px;
+          background: transparent;
+          outline: none;
+          resize: vertical;
+          font: inherit;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: var(--color-primary);
+          }
+        }
+
+        label {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          transform: translateY(-50%);
+          color: var(--color-white);
+          pointer-events: none;
+          transition: opacity 0.25s ease;
+        }
+
+        // Textarea: nhãn nằm ở góc trên
+        &-textarea label {
+          top: 16px;
+          transform: none;
+        }
+
+        // Focus hoặc đã có chữ: ẩn nhãn
+        input:focus + label,
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &-left {
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+    @media (max-width: 991px) {
+      padding-left: 20px;
+      padding-bottom: 56px;
+      padding-top: 200px;
+    }
+  }
+  &-bg {
+    background-image: var(--bg);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // pointer-events: none;
+  }
   &::before {
     content: "";
     position: absolute;
