@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt tiệc | Menas</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/lightpick.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/BeautiqueDisplay/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/Fahkwang/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css?v=20261103-1" />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body class="page-reservation">
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentSegment = (window.location.pathname.split("/").pop() || "").toLowerCase();
+          document.querySelectorAll(".header-menu ul>li>a").forEach((link) => {
+            const linkSegment = (link.getAttribute("href") || "").replace(/^\.\//, "").split("/").pop().toLowerCase();
+            if (linkSegment === currentSegment) link.classList.add("active");
+          });
+        });
+    </script>
+    <header id="header" class="header position-fixed"></header>
+    <main>
+      <section class="banner short-height">
+        <div class="banner-inner">
+          <div class="banner-slider">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="banner-image">
+                    <img src="./assets/images/del/img-1.jpg" alt="Không gian tiệc tại Menas" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h1 class="banner-content font-heading color-primary heading-1 text-center fw-500" el-txt-line-auto-banner>Đặt tiệc</h1>
+        </div>
+      </section>
+
+      <section class="intro-desc style-section" aria-label="Giới thiệu dịch vụ đặt tiệc Menas">
+        <div class="intro-desc-inner">
+          <p class="intro-desc-copy b1 font-heading color-third">Chúng tôi cam kết mang đến những trải nghiệm trọn vẹn và đáng nhớ nhất cho khách hàng tại Menas Mall Saigon Airport. Đội ngũ nhân viên luôn sẵn sàng hỗ trợ, giải đáp thắc mắc và đồng hành cùng quý khách trong việc tìm kiếm thông tin cần thiết.</p>
+        </div>
+      </section>
+
+      <section class="sectionServices style-section no-border" aria-label="Dịch vụ đặt tiệc">
+        <div class="sectionServices-inner">
+          <div class="sectionServices-item" parallax-row>
+            <div class="sectionServices-item-media">
+              <span class="sectionServices-item-number font-heading color-primary">01</span>
+              <div class="sectionServices-item-image" parallax-image><img src="./assets/images/del/img-4.jpg" alt="Tiệc catering với quầy buffet đa dạng" /></div>
+            </div>
+            <div class="sectionServices-item-content">
+              <h2 class="heading-3 font-heading color-third">Dịch vụ catering</h2>
+              <div class="sectionServices-item-desc b2">
+                <p>Menas là đối tác tin cậy của các tập đoàn và tổ chức lớn, mang đến dịch vụ catering tinh tế, chỉn chu cho những sự kiện quy mô. Từ tiệc buffet sáng tạo đến thực đơn thiết kế riêng, mọi chi tiết đều được chăm chút bởi đội ngũ giàu kinh nghiệm.</p>
+                <p>Chúng tôi đồng hành từ khâu lựa chọn nguyên liệu, lên thực đơn đến phục vụ, để mỗi buổi tiệc đều trọn vẹn và đáng nhớ.</p>
+              </div>
+            </div>
+          </div>
+          <div class="sectionServices-item flex-row-reverse" parallax-row>
+            <div class="sectionServices-item-media">
+              <span class="sectionServices-item-number font-heading color-primary">02</span>
+              <div class="sectionServices-item-image" parallax-image><img src="./assets/images/del/img-3.jpg" alt="Không gian nhà hàng dành cho khách đoàn" /></div>
+            </div>
+            <div class="sectionServices-item-content">
+              <h2 class="heading-3 font-heading color-third">Dịch vụ khách đoàn</h2>
+              <div class="sectionServices-item-desc b2">
+                <p>Menas là điểm dừng chân lý tưởng cho các đoàn khách tham quan và du lịch. Không gian rộng rãi, thực đơn phong phú cùng quy trình phục vụ chuyên nghiệp giúp cả đoàn thoải mái thưởng thức bữa ăn.</p>
+                <p>Đội ngũ của chúng tôi sẵn sàng tư vấn lựa chọn phù hợp với lịch trình, số lượng khách và nhu cầu riêng của đoàn.</p>
+              </div>
+            </div>
+          </div>
+          <div class="sectionServices-item" parallax-row>
+            <div class="sectionServices-item-media">
+              <span class="sectionServices-item-number font-heading color-primary">03</span>
+              <div class="sectionServices-item-image" parallax-image><img src="./assets/images/del/img-5.jpg" alt="Bàn tiệc được chuẩn bị cho sự kiện" /></div>
+            </div>
+            <div class="sectionServices-item-content">
+              <h2 class="heading-3 font-heading color-third">Tổ chức sự kiện</h2>
+              <div class="sectionServices-item-desc b2">
+                <p>Yum Food Village là địa điểm phù hợp để tổ chức tiệc, hội thảo và những dịp gặp gỡ đặc biệt. Không gian linh hoạt, ẩm thực đa dạng và dịch vụ chu đáo sẽ góp phần tạo nên trải nghiệm đáng nhớ.</p>
+                <p>Từ khâu chuẩn bị đến khi sự kiện kết thúc, Menas luôn sẵn sàng đồng hành để mọi khoảnh khắc diễn ra suôn sẻ.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sectionReservation style-section" id="sectionReservation" aria-labelledby="reservation-title">
+        <div class="sectionReservation-inner">
+          <div class="sectionReservation-content">
+            <h2 class="heading-3 font-heading color-third" id="reservation-title">Đặt tiệc</h2>
+            <div class="sectionReservation-desc b2 color-third">
+              <ol>
+                <li>Gửi thông tin qua biểu mẫu</li>
+                <li>Menas liên hệ tư vấn trong vòng 24 giờ</li>
+                <li>Xác nhận thực đơn, không gian và đặt cọc</li>
+              </ol>
+              <p>Cần hỗ trợ gấp?</p>
+              <p>Gọi ngay <a href="tel:02871089689">028 71 089 689</a></p>
+              <p>hoặc email <a href="mailto:info@menasvietnam.com">info@menasvietnam.com</a></p>
+            </div>
+          </div>
+
+          <form class="reservation-form" data-reservation-form novalidate>
+            <div class="reservation-form-grid">
+              <div class="dropdown-custom-select reservation-field reservation-field-full" data-required data-placeholder="Cần tư vấn/ Chọn dịch vụ">
+                <span class="reservation-field-label">Dịch vụ <b>*</b></span>
+                <button class="dropdown-custom-btn b4" type="button" aria-expanded="false"><span class="dropdown-custom-text">Cần tư vấn/ Chọn dịch vụ</span><span class="reservation-chevron" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.34082 0.5C6.67415 0.5 4.34082 2.5 3.67415 4.5C3.00749 2.5 0.674153 0.5 0.0074861 0.5" stroke="currentColor" stroke-linejoin="bevel" /></svg></span></button>
+                <div class="dropdown-custom-menu" data-lenis-prevent>
+                  <button class="dropdown-custom-item b4" type="button" data-value="catering">Dịch vụ catering</button>
+                  <button class="dropdown-custom-item b4" type="button" data-value="group">Dịch vụ khách đoàn</button>
+                  <button class="dropdown-custom-item b4" type="button" data-value="event">Tổ chức sự kiện</button>
+                </div>
+              </div>
+              <label class="reservation-field reservation-field-full"><span class="reservation-field-label">Tên Quý khách <b>*</b></span><input class="reservation-input b4" type="text" name="name" placeholder="Tên Quý khách *" autocomplete="name" required /></label>
+              <label class="reservation-field"><span class="reservation-field-label">Số điện thoại <b>*</b></span><input class="reservation-input b4" type="tel" name="phone" placeholder="Số điện thoại *" autocomplete="tel" required /></label>
+              <label class="reservation-field"><span class="reservation-field-label">Email <b>*</b></span><input class="reservation-input b4" type="email" name="email" placeholder="Email *" autocomplete="email" required /></label>
+              <div class="reservation-form-row">
+                <label class="reservation-field"><span class="reservation-field-label">Số người <b>*</b></span><input class="reservation-input b4" type="number" name="guestCount" placeholder="Số người *" min="1" step="1" inputmode="numeric" required /></label>
+                <label class="reservation-field reservation-date-field"><span class="reservation-field-label">Ngày đặt tiệc <b>*</b></span><input class="reservation-input b4" type="text" name="date" aria-label="Ngày đặt tiệc *" data-lightpick readonly required /></label>
+                <div class="dropdown-custom-select reservation-field" data-required data-placeholder="Giờ đặt tiệc *">
+                  <span class="reservation-field-label">Giờ đặt tiệc <b>*</b></span>
+                  <button class="dropdown-custom-btn b4" type="button" aria-expanded="false"><span class="dropdown-custom-text">Giờ đặt tiệc *</span><span class="reservation-chevron" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.34082 0.5C6.67415 0.5 4.34082 2.5 3.67415 4.5C3.00749 2.5 0.674153 0.5 0.0074861 0.5" stroke="currentColor" stroke-linejoin="bevel" /></svg></span></button>
+                  <div class="dropdown-custom-menu" data-lenis-prevent>
+                    <button class="dropdown-custom-item b4" type="button" data-value="10:00">10:00</button>
+                    <button class="dropdown-custom-item b4" type="button" data-value="10:30">10:30</button>
+                    <button class="dropdown-custom-item b4" type="button" data-value="11:00">11:00</button>
+                    <button class="dropdown-custom-item b4" type="button" data-value="11:30">11:30</button>
+                    <button class="dropdown-custom-item b4" type="button" data-value="12:00">12:00</button>
+                  </div>
+                </div>
+              </div>
+              <label class="reservation-field reservation-field-full reservation-notes"><span class="reservation-field-label">Ghi chú thêm</span><textarea class="reservation-input b4" name="notes" placeholder="Ghi chú thêm"></textarea></label>
+            </div>
+            <p class="reservation-policy b4">Bằng việc ‘ĐẶT TIỆC’, bạn đồng ý với <a href="#">Chính sách bảo mật của Menas</a>.</p>
+            <button class="reservation-submit b4" type="submit">ĐẶT TIỆC</button>
+            <p class="reservation-success b4" aria-live="polite" hidden>Gửi thông tin thành công. Menas sẽ liên hệ tư vấn với Quý khách sớm nhất.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script>
+      fetch("./components/footer.html").then((response) => response.text()).then((data) => { document.getElementById("footer").innerHTML = data; });
+    </script>
+    <footer id="footer" class="style-section"></footer>
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/moment.min.js"></script>
+    <script src="./assets/libs/lightpick.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+    <script type="module" src="./assets/main/js/reservation.min.js"></script>
+  </body>
+</html>

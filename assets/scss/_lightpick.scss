@@ -1,8 +1,10 @@
 .lightpick {
-  --color-stroke: #ccc;
-  --color-bg: #fff;
-  --color-active-is-today: #0f0f0f;
-  --color-active-is-today-opacity: rgba(15, 15, 15, 0.7);
+  --color-stroke: rgba(89, 18, 31, 0.2);
+  --color-bg: var(--color-white);
+  --color-active-is-today: rgba(89, 18, 31, 0.5);
+  --color-active-is-today-opacity: rgba(89, 18, 31, 0.2);
+  --color-active: var(--color-third);
+  color: var(--color-third);
   .lightpick__days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -23,13 +25,13 @@
   .lightpick__day.is-start-date,
   .lightpick__day.is-start-date:hover {
     background-image: none;
-    background-color: var(--color-active-is-today);
+    background-color: var(--color-active);
     color: var(--color-bg);
     border-radius: none;
   }
   .lightpick__day:not(.is-disabled):hover {
     background-image: none;
-    background-color: var(--color-active-is-today-opacity);
+    background-color: var(--color-active);
     color: var(--color-bg);
   }
   .lightpick__month-title,

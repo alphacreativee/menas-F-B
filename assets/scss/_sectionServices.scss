@@ -1,0 +1,119 @@
+.sectionServices {
+  padding-bottom: var(--space-64);
+  background-color: var(--color-white-2);
+
+  &-inner {
+    width: min(1272px, calc(100% - max(80px, 100vw - 1272px)));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.sectionServices-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: var(--space-48) 0;
+  border-top: 1px solid rgba(89, 18, 31, 0.2);
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  &-media {
+    display: flex;
+    align-items: flex-start;
+    flex: 0 0 50%;
+    gap: var(--space-32);
+  }
+
+  &-number {
+    flex: 0 0 30%;
+    font-size: 112px;
+    line-height: 0.95;
+  }
+
+  &-image {
+    position: relative;
+    flex: 1 1 auto;
+    aspect-ratio: 388 / 433;
+    overflow: hidden;
+    border-radius: 24px;
+
+    img {
+      display: block;
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+      transform: translateY(0);
+    }
+  }
+
+  &.flex-row-reverse {
+    .sectionServices-item-content {
+      padding: var(--space-8) 110px var(--space-8) 0;
+    }
+  }
+
+  &-content {
+    flex: 1;
+    padding: var(--space-8) 0 var(--space-8) 110px;
+    color: var(--color-third);
+
+    h2 {
+      margin: 0 0 var(--space-16);
+    }
+
+    p + p {
+      margin-top: var(--space-16);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .sectionServices {
+    padding-bottom: var(--space-48);
+  }
+
+  .sectionServices-inner {
+    width: calc(100% - 48px);
+  }
+
+  .sectionServices-item,
+  .sectionServices-item.flex-row-reverse {
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-32) 0;
+
+    > * {
+      order: initial;
+    }
+  }
+
+  .sectionServices-item-number {
+    font-size: 72px;
+  }
+
+  .sectionServices-item-media {
+    width: 100%;
+    flex: auto;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .sectionServices-item-number {
+    flex: auto;
+  }
+
+  .sectionServices-item-image {
+    width: min(100%, 420px);
+    flex: auto;
+    aspect-ratio: 1 / 0.9;
+    border-radius: 18px;
+  }
+
+  .sectionServices-item-content {
+    padding: 0;
+  }
+}
