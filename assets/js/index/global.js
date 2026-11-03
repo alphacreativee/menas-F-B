@@ -513,3 +513,62 @@ export function sliderHero() {
     });
   });
 }
+export function formValidate() {
+  document.querySelectorAll(".banner-form form").forEach((form) => {
+    if (form.dataset.scriptInitialized) return;
+    form.dataset.scriptInitialized = "true";
+
+    form.setAttribute("novalidate", ""); // tắt popup mặc định của trình duyệt
+
+    const rules = {
+      fullname: (v) => v.length >= 2,
+      phone: (v) => /^\+?[0-9\s().-]{8,16}$/.test(v),
+      email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      website: (v) => {
+        if (!v) return true; // không bắt buộc
+        try {
+          new URL(/^https?:\/\//i.test(v) ? v : "https://" + v);
+          return true;
+        } catch {
+          return false;
+        }
+      },
+    };
+
+    const validate = (input) => {
+      const value = input.value.trim();
+      let valid = true;
+
+      if (input.required && !value) valid = false;
+      else if (value && rules[input.name]) valid = rules[input.name](value);
+      else if (!value && rules[input.name] && input.required) valid = false;
+
+      input.closest(".form-item")?.classList.toggle("has-error", !valid);
+      return valid;
+    };
+
+    const fields = form.querySelectorAll("input, textarea");
+
+    fields.forEach((input) => {
+      input.addEventListener("blur", () => validate(input));
+      input.addEventListener("input", () => {
+        if (input.closest(".form-item")?.classList.contains("has-error")) {
+          validate(input);
+        }
+      });
+    });
+
+    form.addEventListener("submit", (e) => {
+      let firstInvalid = null;
+
+      fields.forEach((input) => {
+        if (!validate(input) && !firstInvalid) firstInvalid = input;
+      });
+
+      if (firstInvalid) {
+        e.preventDefault();
+        firstInvalid.focus();
+      }
+    });
+  });
+}

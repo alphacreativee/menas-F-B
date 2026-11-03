@@ -9,6 +9,7 @@ import {
   animationText,
   sliderHero,
   animationTextBox,
+  formValidate,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -85,6 +86,7 @@ function init() {
   sliderW();
   sliderHero();
   animationTextBox();
+  formValidate();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
