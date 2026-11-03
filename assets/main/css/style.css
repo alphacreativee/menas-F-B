@@ -1427,8 +1427,14 @@ body {
   z-index: 4;
   max-width: 50%;
 }
+@media (max-width: 767px) {
+  .banner-contact {
+    max-width: 100%;
+  }
+}
 .banner-contact .list-phone {
   color: var(--color-white);
+  margin-top: 24px;
 }
 .banner-contact h3 {
   margin-bottom: 24px;
@@ -1445,13 +1451,113 @@ body {
   display: block;
   width: max-content;
 }
+.banner-contact .box-social {
+  margin-top: 12px;
+}
 .banner-contact .box-social svg path {
   color: var(--color-white);
+}
+.banner-form {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-form .form-row button {
+  width: 100%;
+  height: 36px;
+}
+.banner-form .form-row.two-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.banner-right {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .banner-right {
+    padding: 48px 0 56px;
+  }
+}
+.banner-right form {
+  max-width: calc(100% - 180px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 991px) {
+  .banner-right form {
+    max-width: calc(100% - 40px);
+  }
+}
+.banner-right form .form-item {
+  position: relative;
+}
+.banner-right form .form-item input {
+  width: 100%;
+  height: 47px;
+  padding: 0 16px;
+  border: 1px solid var(--color-white);
+  border-radius: 8px;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: var(--color-white);
+}
+.banner-right form .form-item input:focus {
+  border-color: var(--color-primary);
+}
+.banner-right form .form-item textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border: 1px solid var(--color-white);
+  border-radius: 8px;
+  background: transparent;
+  outline: none;
+  resize: vertical;
+  font: inherit;
+  transition: border-color 0.3s ease;
+}
+.banner-right form .form-item textarea:focus {
+  border-color: var(--color-primary);
+}
+.banner-right form .form-item label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  color: var(--color-white);
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.banner-right form .form-item-textarea label {
+  top: 16px;
+  transform: none;
+}
+.banner-right form .form-item input:focus + label,
+.banner-right form .form-item input:not(:placeholder-shown) + label,
+.banner-right form .form-item textarea:focus + label,
+.banner-right form .form-item textarea:not(:placeholder-shown) + label {
+  opacity: 0;
 }
 .banner-left {
   display: flex;
   align-items: center;
   padding-left: 70px;
+}
+@media (max-width: 991px) {
+  .banner-left {
+    padding-left: 20px;
+    padding-bottom: 56px;
+    padding-top: 200px;
+  }
 }
 .banner-bg {
   background-image: var(--bg);

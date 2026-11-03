@@ -103,7 +103,94 @@
           <div
             class="banner-right banner-bg"
             style="--bg: url(&quot;../../images/del/contact-1.jpg&quot;)"
-          ></div>
+          >
+            <div class="banner-form">
+              <form action="">
+                <div class="form-row">
+                  <div
+                    class="form-title font-heading heading-4 fw-bold color-white"
+                  >
+                    Gửi thông tin
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-item">
+                    <input
+                      type="text"
+                      id="fullname"
+                      name="fullname"
+                      placeholder=" "
+                      required
+                    />
+                    <label for="fullname">Tên quý khách *</label>
+                  </div>
+                </div>
+                <div class="form-row two-item">
+                  <div class="form-item">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder=" "
+                      inputmode="tel"
+                      autocomplete="tel"
+                      pattern="[0-9+\s().-]{8,15}"
+                      required
+                    />
+                    <label for="phone">Số điện thoại *</label>
+                  </div>
+
+                  <div class="form-item">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder=" "
+                      autocomplete="email"
+                      required
+                    />
+                    <label for="email">Email *</label>
+                  </div>
+                </div>
+                <div class="form-row two-item">
+                  <div class="form-item">
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      placeholder=" "
+                      autocomplete="organization"
+                    />
+                    <label for="company">Tên công ty</label>
+                  </div>
+
+                  <div class="form-item">
+                    <input
+                      type="url"
+                      id="website"
+                      name="website"
+                      placeholder=" "
+                      inputmode="url"
+                      autocomplete="url"
+                    />
+                    <label for="website">Website</label>
+                  </div>
+                </div>
+                <div class="form-item form-item-textarea">
+                  <textarea
+                    id="note"
+                    name="note"
+                    placeholder=" "
+                    rows="4"
+                  ></textarea>
+                  <label for="note">Ghi chú</label>
+                </div>
+                <div class="form-row">
+                  <button class="btn-global btn-bg">Gửi</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </main>
