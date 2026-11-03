@@ -116,3 +116,6 @@
   object-fit: cover;
   transform: translateY(-10%);
 }
+.footer-no-line #footer:before {
+  border: none;
+}
