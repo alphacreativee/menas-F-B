@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-Senses Dining | Menas</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/fonts/BeautiqueDisplay/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/Fahkwang/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css?v=20261103-4" />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body>
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentSegment = (window.location.pathname.split("/").pop() || "").toLowerCase();
+          document.querySelectorAll(".header-menu ul>li>a").forEach((link) => {
+            const linkSegment = (link.getAttribute("href") || "").replace(/^\.\//, "").split("/").pop().toLowerCase();
+            if (linkSegment === currentSegment) link.classList.add("active");
+          });
+        });
+    </script>
+    <header id="header" class="header position-fixed"></header>
+    <main>
+      <section class="banner short-height">
+        <div class="banner-inner">
+          <div class="banner-slider">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="banner-image">
+                    <img src="./assets/images/del/img-4.jpg" alt="Không gian V-Senses Dining" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h1 class="banner-content font-heading color-primary heading-1 text-center fw-500" el-txt-line-auto-banner>V-Senses Dining</h1>
+        </div>
+      </section>
+
+      <section class="diningDetail style-section" aria-label="Thông tin V-Senses Dining">
+        <div class="diningDetail-inner">
+          <div class="diningDetail-video" data-vimeo-video data-vimeo-id="1172104943">
+            <img src="./assets/images/del/contact-2.jpg" alt="Không gian bàn tiệc tại V-Senses Dining" />
+            <button class="diningDetail-play" type="button" aria-label="Phát video V-Senses Dining" aria-pressed="false">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="currentColor" /><path d="M20 15.5v17l13-8.5-13-8.5Z" fill="var(--color-third)" /></svg>
+            </button>
+          </div>
+
+          <div class="diningDetail-content">
+            <div class="diningDetail-description b2">
+              <p>V-Senses Dining là nơi ẩm thực Việt được kể lại bằng ngôn ngữ đương đại – trân trọng những giá trị truyền thống, đồng thời phản chiếu tinh thần của thời đại mới.</p>
+              <p>Từ tinh hoa ẩm thực ba miền Bắc – Trung – Nam, nguyên liệu bản địa được tuyển chọn kỹ lưỡng tại chính nơi sinh ra, kết hợp cùng các kỹ thuật chế biến hiện đại như dry-aging, mở món ăn tại V-Senses giữ trọn hồn Việt nhưng được nâng tầm tinh tế.</p>
+            </div>
+
+            <ul class="diningDetail-info b2">
+              <li>
+                <img src="./assets/images/icons/icon-time.svg" alt="" />
+                <span>Thứ 2 – Chủ Nhật, 9:00 – 21:00</span>
+              </li>
+              <li>
+                <img src="./assets/images/icons/icon-location.svg" alt="" />
+                <span>L5, Menas Mall, 60A Trường Sơn, Tân Sơn Hòa, HCM</span>
+              </li>
+              <li>
+                <img src="./assets/images/icons/icon-location.svg" alt="" />
+                <span>Mena Town, Celesta Rise, Nguyễn Hữu Thọ, Nhà Bè, HCM</span>
+              </li>
+              <li>
+                <img src="./assets/images/icons/icon-phone.svg" alt="" />
+                <a href="tel:02871089689">0287 108 9689</a>
+              </li>
+            </ul>
+
+            <div class="diningDetail-actions">
+              <a class="diningDetail-book" href="tel:02871089689">ĐẶT BÀN</a>
+              <a class="diningDetail-menu" href="./dining.html#menu-v-senses">XEM MENU</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      fetch("./components/footer.html").then((response) => response.text()).then((data) => { document.getElementById("footer").innerHTML = data; });
+    </script>
+    <footer id="footer" class="style-section"></footer>
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+    <script>
+      document.querySelectorAll("[data-vimeo-video]").forEach((video) => {
+        const playButton = video.querySelector(".diningDetail-play");
+        if (!playButton) return;
+
+        playButton.addEventListener("click", () => {
+          const currentPlayer = video.querySelector("iframe");
+          if (currentPlayer) {
+            currentPlayer.remove();
+            video.classList.remove("is-playing");
+            playButton.setAttribute("aria-label", "Phát video V-Senses Dining");
+            playButton.setAttribute("aria-pressed", "false");
+            return;
+          }
+
+          const source = video.dataset.vimeoUrl || video.dataset.vimeoId;
+          const match = source?.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/) || source?.match(/^\d+$/)?.[0];
+          const videoId = Array.isArray(match) ? match[1] : match;
+          if (!videoId) return;
+
+          const iframe = document.createElement("iframe");
+          iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&controls=0&title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1`;
+          iframe.title = "Video V-Senses Dining";
+          iframe.allow = "autoplay; fullscreen; picture-in-picture";
+          iframe.allowFullscreen = true;
+          video.append(iframe);
+          video.classList.add("is-playing");
+          playButton.setAttribute("aria-label", "Dừng video và quay lại ảnh ban đầu");
+          playButton.setAttribute("aria-pressed", "true");
+        });
+      });
+    </script>
+  </body>
+</html>

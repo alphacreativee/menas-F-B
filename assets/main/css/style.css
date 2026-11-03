@@ -2128,6 +2128,162 @@ body {
   }
 }
 
+.diningDetail {
+  padding: var(--space-64) 0;
+  background-color: var(--color-white-2);
+}
+.diningDetail-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+  align-items: flex-start;
+  gap: clamp(48px, 8vw, 116px);
+  width: min(1272px, 100% - max(80px, 100vw - 1272px));
+  margin: 0 auto;
+}
+.diningDetail-video {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.47;
+  border-radius: 24px;
+  background: var(--color-third);
+}
+.diningDetail-video > img,
+.diningDetail-video > iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+.diningDetail-video > iframe {
+  z-index: 2;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100%;
+  max-width: none;
+  pointer-events: none;
+  transform: scale(1.25);
+}
+.diningDetail-video.is-playing > img {
+  opacity: 0;
+}
+.diningDetail-video.is-playing .diningDetail-play {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  cursor: pointer;
+}
+.diningDetail-video.is-playing .diningDetail-play svg {
+  opacity: 0;
+}
+.diningDetail-play {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-white-2);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+.diningDetail-play svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.diningDetail-play:hover {
+  color: var(--color-primary);
+}
+.diningDetail-content {
+  min-width: 0;
+  color: var(--color-third);
+}
+.diningDetail-description p + p {
+  margin-top: var(--space-16);
+}
+.diningDetail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: var(--space-32) 0;
+  padding: 0;
+  list-style: none;
+}
+.diningDetail-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.diningDetail-info img {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  object-fit: contain;
+}
+.diningDetail-info a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+.diningDetail-info a:hover, .diningDetail-info a:focus-visible {
+  color: var(--color-primary);
+}
+.diningDetail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.diningDetail-actions a {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-third);
+  border-radius: 8px;
+  font-size: 12px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.diningDetail-actions a:hover, .diningDetail-actions a:focus-visible {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-third);
+}
+.diningDetail-book {
+  background: var(--color-third);
+  color: var(--color-white-2);
+}
+.diningDetail-menu {
+  background: transparent;
+  color: var(--color-third);
+}
+
+@media (max-width: 767px) {
+  .diningDetail {
+    padding: var(--space-48) 0;
+  }
+  .diningDetail-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+    width: calc(100% - 48px);
+  }
+  .diningDetail-video {
+    border-radius: 18px;
+  }
+  .diningDetail-info {
+    margin: var(--space-24) 0;
+  }
+}
 .sectionNews {
   padding: 56px 0 0;
 }
