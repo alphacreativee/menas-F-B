@@ -84,6 +84,7 @@
     top: 50%;
     left: 16px;
     color: var(--color-third);
+    font-weight: 500;
     pointer-events: none;
     transform: translateY(-50%);
     transition: color 0.3s ease;
@@ -96,7 +97,7 @@
   }
 
   b {
-    font-weight: 400;
+    font-weight: 500;
   }
 
   &:has(textarea) .reservation-field-label {
@@ -136,6 +137,7 @@
   background: transparent;
   color: var(--color-third);
   font-family: var(--font-body);
+  font-weight: 500;
   text-align: left;
   transition: border-color 0.3s ease;
 
@@ -145,6 +147,7 @@
 
   &::placeholder {
     color: transparent;
+    font-weight: 500;
   }
 }
 
@@ -182,6 +185,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .reservation-field.is-invalid:not(.selected) .dropdown-custom-text {
@@ -232,6 +236,7 @@
   border-radius: 4px;
   background: transparent;
   color: var(--color-third);
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
 
@@ -251,7 +256,7 @@
 }
 
 .reservation-policy {
-  margin: var(--space-8) 0;
+  margin: var(--space-16) 0;
 
   a {
     color: inherit;
@@ -286,6 +291,7 @@
 .reservation-success {
   margin: var(--space-16) 0 0;
   color: var(--color-third);
+  font-weight: 500;
 }
 
 @media (max-width: 767px) {

@@ -24,15 +24,17 @@
     font-size: 13px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    transition: opacity 0.2s ease;
-
-    &:hover {
-      opacity: 0.65;
-    }
-
     span {
+      display: inline-block;
+      transition: transform 0.2s ease;
+
       font-size: 22px;
       line-height: 0.8;
+    }
+
+    &:hover span,
+    &:focus-visible span {
+      transform: translateX(-4px);
     }
   }
 

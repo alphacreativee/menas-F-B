@@ -1012,7 +1012,7 @@ body {
   top: 0;
   left: 50%;
   width: calc(100% - max(80px, 100vw - 1272px));
-  border-top: 1px solid var(--color-third);
+  border-top: 1px solid #c6c09f;
   content: "";
   transform: translateX(-50%);
 }
@@ -1632,7 +1632,7 @@ body {
   top: 0;
   left: 50%;
   width: calc(100% - max(80px, 100vw - 1272px));
-  border-top: 1px solid var(--color-third);
+  border-top: 1px solid #c6c09f;
   content: "";
   transform: translateX(-50%);
 }
@@ -2831,14 +2831,15 @@ body {
   font-size: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: opacity 0.2s ease;
-}
-.newsDetail-back:hover {
-  opacity: 0.65;
 }
 .newsDetail-back span {
+  display: inline-block;
+  transition: transform 0.2s ease;
   font-size: 22px;
   line-height: 0.8;
+}
+.newsDetail-back:hover span, .newsDetail-back:focus-visible span {
+  transform: translateX(-4px);
 }
 .newsDetail-category {
   margin: 0 0 8px;
@@ -4061,6 +4062,7 @@ body {
   top: 50%;
   left: 16px;
   color: var(--color-third);
+  font-weight: 500;
   pointer-events: none;
   transform: translateY(-50%);
   transition: color 0.3s ease;
@@ -4069,7 +4071,7 @@ body {
   opacity: 0;
 }
 .reservation-field b {
-  font-weight: 400;
+  font-weight: 500;
 }
 .reservation-field:has(textarea) .reservation-field-label {
   top: 16px;
@@ -4104,6 +4106,7 @@ body {
   background: transparent;
   color: var(--color-third);
   font-family: var(--font-body);
+  font-weight: 500;
   text-align: left;
   transition: border-color 0.3s ease;
 }
@@ -4114,6 +4117,7 @@ body {
 .reservation-input::placeholder,
 .reservation-field .dropdown-custom-btn::placeholder {
   color: transparent;
+  font-weight: 500;
 }
 
 .reservation-input:-webkit-autofill,
@@ -4149,6 +4153,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .reservation-field.is-invalid:not(.selected) .dropdown-custom-text {
@@ -4196,6 +4201,7 @@ body {
   border-radius: 4px;
   background: transparent;
   color: var(--color-third);
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
 }
@@ -4212,7 +4218,7 @@ body {
 }
 
 .reservation-policy {
-  margin: var(--space-8) 0;
+  margin: var(--space-16) 0;
 }
 .reservation-policy a {
   color: inherit;
@@ -4242,6 +4248,7 @@ body {
 .reservation-success {
   margin: var(--space-16) 0 0;
   color: var(--color-third);
+  font-weight: 500;
 }
 
 @media (max-width: 767px) {
