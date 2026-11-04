@@ -1515,6 +1515,9 @@ body {
 .banner-right form .form-item input:focus {
   border-color: var(--color-primary);
 }
+.banner-right form .form-item.has-error input {
+  border: 1px solid var(--color-primary);
+}
 .banner-right form .form-item textarea {
   width: 100%;
   min-height: 120px;
