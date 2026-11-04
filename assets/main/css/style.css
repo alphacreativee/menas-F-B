@@ -1476,6 +1476,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
+@media (max-width: 767px) {
+  .banner-form .form-row.two-item {
+    grid-template-columns: 1fr;
+  }
+}
 .banner-right {
   display: flex;
   align-items: center;
