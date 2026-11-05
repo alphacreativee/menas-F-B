@@ -2613,14 +2613,18 @@ body {
     font-size: 10px;
   }
   .sectionNews2-list {
-    display: flex;
-    gap: 0;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 28px 12px;
+    width: 100% !important;
+    transform: none !important;
+  }
+  .sectionNews2-list > .swiper-slide {
+    width: auto !important;
+    margin-right: 0 !important;
   }
   .sectionNews2-controls {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 16px;
+    display: none;
   }
   .sectionNews2-arrow {
     width: 48px;
@@ -2630,6 +2634,11 @@ body {
     color: var(--color-third);
     font-size: 20px;
     line-height: 1;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .sectionNews2-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 .cardNews2 {
@@ -3892,6 +3901,11 @@ body {
     font-size: 9px;
   }
 }
+@media (max-width: 575px) {
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .sectionServices {
   padding-bottom: var(--space-64);
   background-color: var(--color-white-2);
@@ -3953,6 +3967,27 @@ body {
   margin-top: var(--space-16);
 }
 
+@media (max-width: 991px) and (min-width: 768px) {
+  .sectionServices-item {
+    padding: var(--space-32) 0;
+  }
+  .sectionServices-item-media {
+    flex-basis: 50%;
+    gap: 16px;
+  }
+  .sectionServices-item-number {
+    flex-basis: 22%;
+    font-size: 72px;
+  }
+  .sectionServices-item-content,
+  .sectionServices-item.flex-row-reverse .sectionServices-item-content {
+    padding: 0 0 0 32px;
+  }
+  .sectionServices-item.flex-row-reverse .sectionServices-item-content {
+    padding-right: 32px;
+    padding-left: 0;
+  }
+}
 @media (max-width: 767px) {
   .sectionServices {
     padding-bottom: var(--space-48);
@@ -3962,7 +3997,7 @@ body {
   }
   .sectionServices-item,
   .sectionServices-item.flex-row-reverse {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: var(--space-16);
     padding: var(--space-32) 0;
   }
@@ -3980,15 +4015,19 @@ body {
     gap: var(--space-16);
   }
   .sectionServices-item-number {
-    flex: auto;
+    flex: 0 0 auto;
+    font-size: 52px;
   }
   .sectionServices-item-image {
     width: min(100%, 420px);
-    flex: auto;
+    flex: 0 0 auto;
     aspect-ratio: 1/0.9;
     border-radius: 18px;
   }
   .sectionServices-item-content {
+    padding: 0;
+  }
+  .sectionServices-item.flex-row-reverse .sectionServices-item-content {
     padding: 0;
   }
 }
