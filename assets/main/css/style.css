@@ -1352,7 +1352,6 @@ body {
 #header .header-lang .dropdown-custom-btn {
   display: flex;
   align-items: center;
-  gap: 4px;
 }
 #header .header-lang .dropdown-custom-btn .value-select {
   font-size: 14px;
@@ -2063,8 +2062,8 @@ body {
   transform: translate(calc(-100% - 22px), -50%);
 }
 .dining-slider .swiper-button-prev {
-  left: calc(var(--pad-left) + var(--slide-w) * 3 + var(--gap) * 2);
-  transform: translate(calc(-200% - 22px - var(--btn-gap)), -50%);
+  left: 0;
+  transform: translate(0, -50%);
 }
 @media (max-width: 991px) {
   .dining-slider {
@@ -2089,7 +2088,6 @@ body {
   border: 1px solid var(--color-third);
   background-color: var(--color-white-2);
   border-radius: 4px;
-  top: 40px;
   margin: 0;
   transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
