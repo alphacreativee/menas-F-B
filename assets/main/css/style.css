@@ -2626,10 +2626,6 @@ body {
   .sectionNews2-heading {
     margin-bottom: 18px;
   }
-  .sectionNews2-all {
-    padding: 6px 9px;
-    font-size: 10px;
-  }
   .sectionNews2-list {
     display: grid !important;
     grid-template-columns: 1fr;
@@ -3912,11 +3908,6 @@ body {
     right: 9px;
     bottom: 9px;
     left: 9px;
-  }
-  .restaurant-card-actions > a:first-child,
-  .restaurant-card .btn-global {
-    padding: 6px 7px;
-    font-size: 9px;
   }
 }
 @media (max-width: 575px) {
