@@ -254,7 +254,9 @@
 
     &-lang {
       margin-left: 16px;
-
+      @media (max-width: 767px) {
+        margin-left: 0;
+      }
       .dropdown-custom {
         position: relative;
         cursor: pointer;

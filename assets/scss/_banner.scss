@@ -5,6 +5,9 @@
   z-index: 1;
   overflow: hidden;
   background-color: var(--color-black);
+  @media (max-width: 767px) {
+    height: 60vh;
+  }
   &.short-height {
     height: 60vh;
   }
@@ -226,11 +229,17 @@
       //   max-width: none;
       //   max-height: none;
       transform: translate(-50%, -50%) scale(1.2);
+      @media (max-width: 767px) {
+        transform: translate(-50%, -50%) scale(2);
+      }
     }
   }
   &-slider {
     width: 100%;
     height: 100%;
+    .swiper {
+      height: 100%;
+    }
   }
   &-image {
     width: 100%;
