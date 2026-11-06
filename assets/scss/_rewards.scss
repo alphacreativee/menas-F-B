@@ -1,0 +1,165 @@
+.sectionBrands {
+  padding: 48px 0 40px;
+  overflow: hidden;
+
+  &-marquee {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &-track {
+    display: flex;
+    width: max-content;
+    animation: rewards-brands-marquee 38s linear infinite;
+  }
+
+  &-marquee:hover &-track {
+    animation-play-state: paused;
+  }
+
+  &-list {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: clamp(52px, 6vw, 92px);
+    padding: 0 46px;
+  }
+
+  &-logo {
+    display: block;
+    width: clamp(120px, 15vw, 210px);
+    height: 88px;
+    object-fit: contain;
+  }
+}
+
+@keyframes rewards-brands-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.sectionApp {
+  padding: 64px 0 76px;
+
+  &-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 8%;
+    width: calc(100% - max(80px, 100vw - 1272px));
+    max-width: 1272px;
+    margin: 0 auto;
+  }
+
+  &-visual img {
+    display: block;
+    width: min(100%, 500px);
+    margin: auto;
+  }
+
+  &-content {
+    color: var(--color-third);
+  }
+  &-eyebrow {
+    margin: 0 0 24px;
+    font-family: var(--font-body);
+  }
+  &-promo {
+    display: grid;
+    grid-template-columns: clamp(112px, 12vw, 160px) minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+  }
+  &-qr {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  &-offer {
+    margin: 0;
+  }
+
+  &-download {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+
+    a {
+      position: relative;
+      display: block;
+      width: 190px;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover .sectionApp-download-hover,
+    a:focus-visible .sectionApp-download-hover {
+      opacity: 1;
+    }
+  }
+
+  &-download img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  &-download-hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
+
+@media (max-width: 767px) {
+  .sectionBrands {
+    padding: 32px 0 28px;
+  }
+  .sectionBrands-list {
+    gap: 40px;
+    padding: 0 24px;
+  }
+  .sectionBrands-logo {
+    width: 128px;
+    height: 64px;
+  }
+  .sectionApp {
+    padding: 40px 0 48px;
+  }
+  .sectionApp-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: calc(100% - 48px);
+  }
+  .sectionApp-visual img {
+    width: min(88%, 360px);
+  }
+  .sectionApp-content {
+    text-align: center;
+  }
+  .sectionApp-eyebrow {
+    margin-bottom: 14px;
+  }
+  .sectionApp-promo {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 14px;
+    text-align: left;
+  }
+  .sectionApp-offer {
+    font-size: clamp(18px, 5.5vw, 25px);
+  }
+  .sectionApp-download {
+    justify-content: center;
+    margin-top: 22px;
+  }
+  .sectionApp-download a {
+    width: min(44vw, 170px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sectionBrands-track {
+    animation: none;
+  }
+}

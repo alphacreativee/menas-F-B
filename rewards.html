@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mena Rewards | Menas</title>
+    <link
+      rel="icon"
+      href="./assets/images/menas-favicon-min.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/BeautiqueDisplay/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/Fahkwang/font.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/main/css/style.min.css?v=20261105-rewards"
+    />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body>
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentSegment = (
+            window.location.pathname.split("/").pop() || ""
+          ).toLowerCase();
+          document.querySelectorAll(".header-menu ul>li>a").forEach((link) => {
+            const segment = (link.getAttribute("href") || "")
+              .replace(/^\.\//, "")
+              .split("/")
+              .pop()
+              .toLowerCase();
+            if (segment === currentSegment) link.classList.add("active");
+          });
+        });
+    </script>
+    <header id="header" class="header position-fixed"></header>
+
+    <main>
+      <section class="banner short-height">
+        <div class="banner-inner">
+          <div class="banner-slider">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="banner-image">
+                    <img
+                      src="./assets/images/del/img-1.jpg"
+                      alt="Không gian Menas"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h1
+            class="banner-content font-heading color-primary heading-1 text-center fw-500"
+            el-txt-line-auto-banner
+          >
+            Mena Rewards
+          </h1>
+        </div>
+      </section>
+
+      <section
+        class="sectionBrands style-section"
+        aria-label="Thương hiệu áp dụng Mena Rewards"
+      >
+        <div class="sectionBrands-marquee">
+          <div class="sectionBrands-track">
+            <div class="sectionBrands-list">
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/1.svg"
+                alt="V-Senses Dining"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/2.svg"
+                alt="Thai Siam Kitchen"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/3.svg"
+                alt="L'amuse Gourmet Cafe"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/4.svg"
+                alt="Don Cipriani's"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/5.svg"
+                alt="Hura Izakaya"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/6.svg"
+                alt="The Fan Steak House"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/7.svg"
+                alt="Thai restaurant"
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/8.svg"
+                alt="Menas dining brand"
+              />
+            </div>
+            <div class="sectionBrands-list" aria-hidden="true">
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/1.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/2.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/3.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/4.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/5.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/6.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/7.svg"
+                alt=""
+              />
+              <img
+                class="sectionBrands-logo"
+                src="./assets/images/del/logo-restaurant/8.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="sectionApp style-section"
+        aria-labelledby="sectionApp-title"
+      >
+        <div class="sectionApp-inner">
+          <div class="sectionApp-visual">
+            <img
+              src="./assets/images/del/reward-img.png"
+              alt="Ứng dụng Mena Rewards với ưu đãi và quà tặng"
+            />
+          </div>
+          <div class="sectionApp-content">
+            <p class="sectionApp-eyebrow b3">
+              Tải App hôm nay, chạm ngay ưu đãi
+            </p>
+            <div class="sectionApp-promo">
+              <img
+                class="sectionApp-qr"
+                src="./assets/images/del/qr-code.png"
+                alt="Mã QR tải ứng dụng Mena Rewards"
+              />
+              <h2 class="sectionApp-offer heading-3 font-heading">
+                Đăng ký chỉ 3 giây <br />Hoàn tiền tới 15% vào ví <br />Ưu đãi
+                tại 50+ thương hiệu
+              </h2>
+            </div>
+            <div
+              class="sectionApp-download"
+              aria-label="Tải ứng dụng Mena Rewards"
+            >
+              <a href="#" aria-label="Tải ứng dụng trên Apple Store">
+                <img
+                  class="sectionApp-download-default"
+                  src="./assets/images/del/app-store.svg"
+                  alt="Tải ứng dụng trên Apple Store"
+                />
+                <img
+                  class="sectionApp-download-hover"
+                  src="./assets/images/del/app-store-hover.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
+              <a href="#" aria-label="Tải ứng dụng trên Google Play">
+                <img
+                  class="sectionApp-download-default"
+                  src="./assets/images/del/gg-play.svg"
+                  alt="Tải ứng dụng trên Google Play"
+                />
+                <img
+                  class="sectionApp-download-hover"
+                  src="./assets/images/del/gg-play-hover.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="sectionNews2 style-section"
+        aria-labelledby="sectionNews2-title"
+      >
+        <div class="sectionNews2-inner">
+          <div class="sectionNews2-heading">
+            <h2 class="sectionNews2-title heading-3 font-heading color-third">
+              Tin tức
+            </h2>
+            <a class="sectionNews2-all b4" href="./news.html">Xem thêm</a>
+          </div>
+          <div class="sectionNews2-slider swiper">
+            <div class="sectionNews2-list swiper-wrapper">
+              <article class="cardNews2 swiper-slide">
+                <a class="cardNews2-image" href="./news-detail.html"
+                  ><img
+                    src="./assets/images/del/moment-5.avif"
+                    alt="Không gian ẩm thực tại Menas Mall"
+                /></a>
+                <h3 class="cardNews2-title b1 font-heading">
+                  <a href="./news-detail.html">Nhịp sống tại Menas Mall</a>
+                </h3>
+                <p class="cardNews2-description b4">
+                  Khám phá những câu chuyện ẩm thực, mua sắm và gặp gỡ tại Menas
+                  Mall Saigon Airport. Cập nhật tin tức và cảm hứng cho mỗi lần
+                  ghé thăm.
+                </p>
+                <a class="cardNews2-readmore b4" href="./news-detail.html"
+                  >CHI TIẾT <span aria-hidden="true">→</span></a
+                >
+              </article>
+              <article class="cardNews2 swiper-slide">
+                <a class="cardNews2-image" href="./news-detail.html"
+                  ><img
+                    src="./assets/images/del/moment-4.avif"
+                    alt="Không gian cầu thang tại Menas"
+                /></a>
+                <h3 class="cardNews2-title b1 font-heading">
+                  <a href="./news-detail.html">Hẹn nhau cuối tuần</a>
+                </h3>
+                <p class="cardNews2-description b4">
+                  Tìm cảm hứng cho buổi hẹn cuối tuần với ẩm thực và những
+                  khoảnh khắc sum vầy. Theo dõi thông tin sự kiện tại Menas Mall
+                  Saigon Airport.
+                </p>
+                <a class="cardNews2-readmore b4" href="./news-detail.html"
+                  >CHI TIẾT <span aria-hidden="true">→</span></a
+                >
+              </article>
+              <article class="cardNews2 swiper-slide">
+                <a class="cardNews2-image" href="./news-detail.html"
+                  ><img
+                    src="./assets/images/del/moment-3.avif"
+                    alt="Không gian nhà hàng ấm cúng"
+                /></a>
+                <h3 class="cardNews2-title b1 font-heading">
+                  <a href="./news-detail.html">Câu chuyện vị Việt</a>
+                </h3>
+                <p class="cardNews2-description b4">
+                  Khám phá nét tinh tế của ẩm thực Việt qua nguyên liệu quen
+                  thuộc và cách trình bày đầy cảm hứng. Mỗi món ăn là một câu
+                  chuyện để sẻ chia.
+                </p>
+                <a class="cardNews2-readmore b4" href="./news-detail.html"
+                  >CHI TIẾT <span aria-hidden="true">→</span></a
+                >
+              </article>
+            </div>
+            <div class="sectionNews2-controls" aria-label="Điều hướng tin tức">
+              <button
+                class="sectionNews2-arrow sectionNews2-prev"
+                type="button"
+                aria-label="Tin trước"
+              >
+                ←
+              </button>
+              <button
+                class="sectionNews2-arrow sectionNews2-next"
+                type="button"
+                aria-label="Tin tiếp theo"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer" class="style-section"></footer>
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <script>
+      (() => {
+        const container = document.querySelector(".sectionNews2-slider");
+        const mobile = window.matchMedia("(max-width: 767px)");
+        let newsSwiper;
+        const syncNewsSlider = () => {
+          if (mobile.matches && !newsSwiper) {
+            newsSwiper = new Swiper(container, {
+              slidesPerView: 1.12,
+              spaceBetween: 12,
+              speed: 650,
+              navigation: {
+                nextEl: ".sectionNews2-next",
+                prevEl: ".sectionNews2-prev"
+              }
+            });
+          } else if (!mobile.matches && newsSwiper) {
+            newsSwiper.destroy(true, true);
+            newsSwiper = undefined;
+          }
+        };
+        syncNewsSlider();
+        mobile.addEventListener("change", syncNewsSlider);
+      })();
+    </script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+  </body>
+</html>
