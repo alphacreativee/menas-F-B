@@ -216,5 +216,10 @@
 
     <script type="module" src="./assets/main/js/script.min.js"></script>
     <script type="module" src="./assets/main/js/home.min.js"></script>
+    <script>
+      document.querySelector(".banner-form form")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+      });
+    </script>
   </body>
 </html>

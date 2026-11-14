@@ -12,6 +12,7 @@
     height: 60vh;
   }
   &.two-col {
+    position: static;
     .banner-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -139,6 +140,7 @@
           outline: none;
           resize: vertical;
           font: inherit;
+          color: var(--color-white);
           transition: border-color 0.3s ease;
 
           &:focus {
@@ -169,6 +171,18 @@
         textarea:not(:placeholder-shown) + label {
           opacity: 0;
         }
+      }
+
+      button[type="submit"].aloading {
+        &::after {
+          border: 1px solid var(--color-third);
+          border-right-color: transparent;
+        }
+      }
+
+      .form-error,
+      .form-success {
+        color: var(--color-white);
       }
     }
   }

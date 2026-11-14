@@ -21,6 +21,11 @@
   --spacing-padding: 120px 40px;
 }
 
+::selection {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
 @media (max-width: 991px) {
   :root {
     --space-8: 8px;
@@ -960,6 +965,31 @@ body {
   background-color: var(--color-primary);
 }
 
+button.aloading,
+a.aloading {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+button.aloading::after,
+a.aloading::after {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.5em;
+  vertical-align: -0.1em;
+  content: "";
+  border: 1px solid var(--color-white);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: aloading-spin 0.7s linear infinite;
+}
+
+@keyframes aloading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .style-spacing {
   height: 64px;
 }
@@ -1386,6 +1416,10 @@ body {
   transition: background 0.3s ease;
   cursor: pointer;
 }
+#header .header-lang .dropdown-custom-item img {
+  width: 20px;
+  height: 15px;
+}
 #header .header-lang .dropdown-custom-item:hover {
   background-color: var(--color-primary);
 }
@@ -1410,6 +1444,9 @@ body {
 }
 .banner.short-height {
   height: 60vh;
+}
+.banner.two-col {
+  position: static;
 }
 .banner.two-col .banner-inner {
   display: grid;
@@ -1542,6 +1579,7 @@ body {
   outline: none;
   resize: vertical;
   font: inherit;
+  color: var(--color-white);
   transition: border-color 0.3s ease;
 }
 .banner-right form .form-item textarea:focus {
@@ -1565,6 +1603,14 @@ body {
 .banner-right form .form-item textarea:focus + label,
 .banner-right form .form-item textarea:not(:placeholder-shown) + label {
   opacity: 0;
+}
+.banner-right form button[type=submit].aloading::after {
+  border: 1px solid var(--color-third);
+  border-right-color: transparent;
+}
+.banner-right form .form-error,
+.banner-right form .form-success {
+  color: var(--color-white);
 }
 .banner-left {
   display: flex;
@@ -3816,6 +3862,23 @@ body {
   margin-bottom: 0;
 }
 
+.intro-desc.has-custom-bg,
+.intro.has-custom-bg {
+  position: relative;
+  isolation: isolate;
+  background-image: none;
+}
+
+.intro-desc.has-custom-bg::before,
+.intro.has-custom-bg::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--bg-section) center/cover no-repeat;
+  opacity: 0.08;
+}
+
 .intro-desc {
   min-height: 260px;
   display: grid;
@@ -4514,9 +4577,17 @@ body {
 }
 .sectionBrands-logo {
   display: block;
-  width: clamp(120px, 15vw, 210px);
+  width: max-content;
   height: 88px;
   object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sectionBrands-logo img {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
 }
 
 @keyframes rewards-brands-marquee {

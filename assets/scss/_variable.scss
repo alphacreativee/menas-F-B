@@ -23,6 +23,12 @@
   --space-80: 80px;
   --spacing-padding: 120px 40px;
 }
+
+::selection {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
 @media (max-width: 991px) {
   :root {
     // spacing mobile

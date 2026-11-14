@@ -55,3 +55,20 @@
     }
   }
 }
+
+.intro-desc.has-custom-bg,
+.intro.has-custom-bg {
+  position: relative;
+  isolation: isolate;
+  background-image: none;
+}
+
+.intro-desc.has-custom-bg::before,
+.intro.has-custom-bg::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--bg-section) center / cover no-repeat;
+  opacity: 0.08;
+}

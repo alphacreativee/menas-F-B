@@ -325,6 +325,11 @@
         transition: background 0.3s ease;
         cursor: pointer;
 
+        img {
+          width: 20px;
+          height: 15px;
+        }
+
         &:hover {
           background-color: var(--color-primary);
         }
