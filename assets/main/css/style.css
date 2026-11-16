@@ -1446,7 +1446,7 @@ a.aloading::after {
   height: 60vh;
 }
 .banner.two-col {
-  position: static;
+  position: relative;
 }
 .banner.two-col .banner-inner {
   display: grid;
@@ -2285,7 +2285,7 @@ a.aloading::after {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin: var(--space-32) 0;
+  margin: 0 0 var(--space-32) 0;
   padding: 0;
   list-style: none;
 }
@@ -2293,6 +2293,9 @@ a.aloading::after {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+}
+.diningDetail-info li p {
+  margin-bottom: 10px;
 }
 .diningDetail-info img {
   display: block;
@@ -2391,7 +2394,7 @@ a.aloading::after {
   border-radius: 20px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   border: 1px solid transparent;
   background-color: #fbf6e0;
@@ -2409,6 +2412,12 @@ a.aloading::after {
 .dining-detail .diningDetail-info a {
   color: var(--color-third);
 }
+.dining-detail .diningDetail-info a {
+  transition: all 0.3s ease;
+}
+.dining-detail .diningDetail-info a:hover {
+  color: var(--color-primary);
+}
 .dining-detail-boxed {
   display: flex;
   flex-direction: column;
@@ -2421,10 +2430,11 @@ a.aloading::after {
 }
 .dining-detail-image {
   width: 180px;
-  aspect-ratio: 180/115px;
+  aspect-ratio: 180/115;
   overflow: hidden;
   border-radius: 20px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 @media (max-width: 767px) {
   .dining-detail-image {
@@ -3294,6 +3304,47 @@ a.aloading::after {
     padding-left: 0;
     padding-right: 20px;
     scroll-snap-type: x mandatory;
+  }
+}
+.terms-page {
+  background-color: var(--color-white-2);
+}
+
+.sectionTerms {
+  padding: 150px 0 104px;
+  color: var(--color-third);
+  background-color: var(--color-white-2);
+}
+.sectionTerms-inner {
+  width: calc(100% - max(80px, 100vw - 1272px));
+  max-width: 1272px;
+  margin: 0 auto;
+}
+.sectionTerms-title {
+  margin: 0 0 48px;
+  text-align: center;
+}
+.sectionTerms-content {
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  .sectionTerms {
+    padding: 120px 0 72px;
+  }
+  .sectionTerms-inner {
+    width: calc(100% - 48px);
+  }
+}
+@media (max-width: 767px) {
+  .sectionTerms {
+    padding: 96px 0 56px;
+  }
+  .sectionTerms-inner {
+    width: calc(100% - 40px);
+  }
+  .sectionTerms-title {
+    margin-bottom: 32px;
   }
 }
 .sectionTestimonials {

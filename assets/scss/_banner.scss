@@ -12,7 +12,7 @@
     height: 60vh;
   }
   &.two-col {
-    position: static;
+    position: relative;
     .banner-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;

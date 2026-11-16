@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Điều khoản | Menas</title>
+    <link rel="icon" href="./assets/images/menas-favicon-min.png" type="image/png" />
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/fonts/BeautiqueDisplay/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/Fahkwang/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css?v=20261114-terms" />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body class="terms-page">
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => (document.getElementById("header").innerHTML = data));
+    </script>
+    <header id="header" class="header header-default position-fixed"></header>
+
+    <main>
+      <section class="sectionTerms" aria-labelledby="sectionTerms-title">
+        <div class="sectionTerms-inner">
+          <h1 class="sectionTerms-title heading-2 font-heading" id="sectionTerms-title">Điều khoản</h1>
+          <!-- Replace this content with the content rendered by WordPress Classic Editor. -->
+          <div class="newsDetail-content sectionTerms-content">
+            <p>Nội dung điều khoản sử dụng sẽ được cập nhật tại đây.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => (document.getElementById("footer").innerHTML = data));
+    </script>
+    <footer id="footer" class="style-section"></footer>
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+    <script type="module" src="./assets/main/js/home.min.js"></script>
+  </body>
+</html>

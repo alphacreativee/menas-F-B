@@ -1,0 +1,48 @@
+.terms-page {
+  background-color: var(--color-white-2);
+}
+
+.sectionTerms {
+  padding: 150px 0 104px;
+  color: var(--color-third);
+  background-color: var(--color-white-2);
+
+  &-inner {
+    width: calc(100% - max(80px, 100vw - 1272px));
+    max-width: 1272px;
+    margin: 0 auto;
+  }
+
+  &-title {
+    margin: 0 0 48px;
+    text-align: center;
+  }
+
+  &-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .sectionTerms {
+    padding: 120px 0 72px;
+
+    &-inner {
+      width: calc(100% - 48px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .sectionTerms {
+    padding: 96px 0 56px;
+
+    &-inner {
+      width: calc(100% - 40px);
+    }
+
+    &-title {
+      margin-bottom: 32px;
+    }
+  }
+}
