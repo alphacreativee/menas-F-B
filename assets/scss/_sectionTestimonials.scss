@@ -115,11 +115,22 @@
       background-color 0.2s ease,
       color 0.2s ease;
 
+    svg {
+      width: 7px;
+      height: 12px;
+    }
+
     &:hover,
     &:focus-visible {
       border-color: var(--color-primary);
       background: var(--color-primary);
       color: var(--color-third);
+    }
+
+    &[data-testimonials-next] {
+      svg {
+        transform: scaleX(-1);
+      }
     }
   }
 

@@ -146,3 +146,70 @@ a.aloading::after {
 .footer-no-line #footer:before {
   border: none;
 }
+
+.modal.dining-menu-modal {
+  z-index: 3000;
+}
+
+.dining-menu-modal .modal-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+}
+
+.dining-menu-modal .modal-content,
+.dining-menu-modal .modal-body {
+  background: var(--color-third);
+}
+
+.dining-menu-modal .modal-content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+}
+
+.dining-menu-modal .modal-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  padding: 0;
+  overflow: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dining-menu-modal .modal-body > ._df_book,
+.dining-menu-modal .modal-body > .df-container {
+  max-width: 100vw;
+  max-height: 100vh;
+  min-height: 0;
+  margin: auto;
+}
+
+.dining-menu-modal .modal-body > ._df_book {
+  min-height: 400px;
+}
+
+.dining-menu-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 5;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+}

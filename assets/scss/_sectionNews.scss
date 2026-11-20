@@ -171,6 +171,17 @@
       transform: translateY(-1px);
     }
 
+    svg {
+      width: 7px;
+      height: 12px;
+    }
+
+    &[data-news-next] {
+      svg {
+        transform: scaleX(-1);
+      }
+    }
+
     &:hover,
     &:focus-visible {
       border-color: var(--color-primary);
