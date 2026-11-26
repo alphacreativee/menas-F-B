@@ -803,7 +803,17 @@
         aria-label="Chọn ảnh"
       ></div>
     </div>
+
+    <div id="cta"></div>
+
     <!-- layout -->
+     <script>
+      fetch("./components/cta.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("cta").innerHTML = data;
+        });
+    </script>
     <!-- footer -->
     <script>
       fetch("./components/footer.html")

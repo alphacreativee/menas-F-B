@@ -1145,6 +1145,41 @@ a.aloading::after {
   line-height: 1;
 }
 
+#cta {
+  position: fixed;
+  z-index: 999;
+  bottom: 40px;
+  right: 24px;
+}
+@media (max-width: 767px) {
+  #cta {
+    right: 16px;
+  }
+}
+#cta .cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+#cta .cta-wrapper a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-third);
+  color: var(--color-white);
+  transition: all 0.4s ease;
+}
+#cta .cta-wrapper a:hover {
+  background-color: var(--color-primary);
+}
+#cta .cta-wrapper a svg {
+  width: 24px;
+  height: 24px;
+}
+
 .lightpick {
   --color-stroke: rgba(89, 18, 31, 0.2);
   --color-bg: var(--color-white);
